@@ -19,6 +19,7 @@
 
 - (void)uploadPhoto {
   [self dismissViewControllerAnimated:YES completion:nil];
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"UploadSuccess" object:self userInfo:nil];
 }
 
 - (void)viewDidLoad {

@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 0
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 3
 
+// NoticeView
+#define COCOAPODS_POD_AVAILABLE_NoticeView
+#define COCOAPODS_VERSION_MAJOR_NoticeView 3
+#define COCOAPODS_VERSION_MINOR_NoticeView 0
+#define COCOAPODS_VERSION_PATCH_NoticeView 7
+
 // TestFlightSDK
 #define COCOAPODS_POD_AVAILABLE_TestFlightSDK
 #define COCOAPODS_VERSION_MAJOR_TestFlightSDK 2

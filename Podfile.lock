@@ -24,16 +24,19 @@ PODS:
   - Kiwi/SenTestingKit (2.2.3):
     - Kiwi/ARC
     - Kiwi/NonARC
+  - NoticeView (3.0.7)
   - TestFlightSDK (2.1.3-noadid-beta)
 
 DEPENDENCIES:
   - AFNetworking
   - Kiwi
+  - NoticeView
   - TestFlightSDK
 
 SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
   Kiwi: 04c51e880831d291748ec702d42c4101f7eb95c9
+  NoticeView: f885ce90b53dacce3b19f2d5e95c6db68fe4e45d
   TestFlightSDK: 8f8941d0dd990508e127480b06cc6c36379c1b49
 
 COCOAPODS: 0.28.0
