@@ -31,6 +31,9 @@
 		A1C78E7218532561007E748D /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E7118532561007E748D /* NSData+Base64.m */; };
 		A1C78E75185336CA007E748D /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E74185336C9007E748D /* LocationManager.m */; };
 		A1C78E7718533A23007E748D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C78E7618533A23007E748D /* CoreLocation.framework */; };
+		A1C78E7B1853B37C007E748D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E791853B37C007E748D /* MapViewController.m */; };
+		A1C78E7E1853B3C6007E748D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E7D1853B3C6007E748D /* MapViewController.xib */; };
+		A1C78E801853B478007E748D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C78E7F1853B478007E748D /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,10 @@
 		A1C78E73185336C9007E748D /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		A1C78E74185336C9007E748D /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		A1C78E7618533A23007E748D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A1C78E781853B37C007E748D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Controllers/MapViewController.h; sourceTree = "<group>"; };
+		A1C78E791853B37C007E748D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Controllers/MapViewController.m; sourceTree = "<group>"; };
+		A1C78E7D1853B3C6007E748D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = Views/MapViewController.xib; sourceTree = "<group>"; };
+		A1C78E7F1853B478007E748D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D9122C4D4E5D4BBC96BA43AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C78E801853B478007E748D /* MapKit.framework in Frameworks */,
 				A1C78E7718533A23007E748D /* CoreLocation.framework in Frameworks */,
 				A1C78E201852D058007E748D /* CoreGraphics.framework in Frameworks */,
 				A1C78E221852D058007E748D /* UIKit.framework in Frameworks */,
@@ -144,6 +152,7 @@
 		A1C78E1C1852D058007E748D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1C78E7F1853B478007E748D /* MapKit.framework */,
 				A1C78E7618533A23007E748D /* CoreLocation.framework */,
 				A1C78E1D1852D058007E748D /* Foundation.framework */,
 				A1C78E1F1852D058007E748D /* CoreGraphics.framework */,
@@ -210,6 +219,8 @@
 				A1C78E631852E9AB007E748D /* PhotoDetailsViewController.m */,
 				A1C78E691852EF28007E748D /* PhotoSelectionViewController.h */,
 				A1C78E6A1852EF28007E748D /* PhotoSelectionViewController.m */,
+				A1C78E781853B37C007E748D /* MapViewController.h */,
+				A1C78E791853B37C007E748D /* MapViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -217,6 +228,7 @@
 		A1C78E571852D94E007E748D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1C78E7D1853B3C6007E748D /* MapViewController.xib */,
 				A1C78E6E1852EF6C007E748D /* PhotoSelectionViewController.xib */,
 				A1C78E671852E9E1007E748D /* PhotoDetailsViewController.xib */,
 				A1C78E601852E910007E748D /* MainViewController.xib */,
@@ -312,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1C78E6F1852EF6C007E748D /* PhotoSelectionViewController.xib in Resources */,
+				A1C78E7E1853B3C6007E748D /* MapViewController.xib in Resources */,
 				A1C78E391852D058007E748D /* Images.xcassets in Resources */,
 				A1C78E611852E910007E748D /* MainViewController.xib in Resources */,
 				A1C78E681852E9E1007E748D /* PhotoDetailsViewController.xib in Resources */,
@@ -400,6 +413,7 @@
 				A1C78E75185336CA007E748D /* LocationManager.m in Sources */,
 				A1C78E6C1852EF28007E748D /* PhotoSelectionViewController.m in Sources */,
 				A1C78E2E1852D058007E748D /* AppDelegate.m in Sources */,
+				A1C78E7B1853B37C007E748D /* MapViewController.m in Sources */,
 				A1C78E5E1852DB09007E748D /* MainViewController.m in Sources */,
 				A1C78E7218532561007E748D /* NSData+Base64.m in Sources */,
 				A1C78E2A1852D058007E748D /* main.m in Sources */,

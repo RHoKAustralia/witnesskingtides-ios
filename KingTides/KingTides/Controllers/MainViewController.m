@@ -2,9 +2,8 @@
 #import "MainViewController.h"
 #import "PhotoSelectionViewController.h"
 #import "WBSuccessNoticeView.h"
-#import "WBStickyNoticeView.h"
 #import "WBErrorNoticeView.h"
-
+#import "MapViewController.h"
 
 @interface MainViewController()
 
@@ -20,15 +19,6 @@
     }
     return self;
 }
-
-- (IBAction)showTakePhotoDialog:(id)sender {
-  PhotoSelectionViewController *photoSelectionViewController = [[PhotoSelectionViewController alloc] init];
-  UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:photoSelectionViewController];
-  navController.modalTransitionStyle = photoSelectionViewController.modalTransitionStyle;
-
-  [self presentViewController:navController animated:YES completion:nil];
-}
-
 
 - (void)viewDidLoad
 {
@@ -51,6 +41,20 @@
   [super didReceiveMemoryWarning];
 }
 
+- (IBAction)showTakeDialog:(id)sender {
+  PhotoSelectionViewController *photoSelectionViewController = [[PhotoSelectionViewController alloc] init];
+  UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:photoSelectionViewController];
+  navController.modalTransitionStyle = photoSelectionViewController.modalTransitionStyle;
 
+  [self presentViewController:navController animated:YES completion:nil];
+}
+
+- (IBAction)showMap:(id)sender {
+  MapViewController *mapViewController = [[MapViewController alloc] init];
+  UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mapViewController];
+  navController.modalTransitionStyle = mapViewController.modalTransitionStyle;
+
+  [self presentViewController:navController animated:YES completion:nil];
+}
 
 @end
