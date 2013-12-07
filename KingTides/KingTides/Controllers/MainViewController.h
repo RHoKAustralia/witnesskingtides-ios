@@ -10,4 +10,6 @@
 
 @interface MainViewController : UIViewController
 
+- (IBAction)takePhoto:(id)sender;
+
 @end

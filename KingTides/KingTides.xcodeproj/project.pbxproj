@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B09B32F07FA468492CDCDF7 /* libPods-KingTidesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275F62F30E5446AF947144A0 /* libPods-KingTidesTests.a */; };
+		2DC18D303FAE81E5AD010009 /* UIImage+FixRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18473F8D9E0DABAACF7AD /* UIImage+FixRotation.m */; };
 		8C562782518E4AF7A4E7632C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9122C4D4E5D4BBC96BA43AA /* libPods.a */; };
 		A1C78E1E1852D058007E748D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C78E1D1852D058007E748D /* Foundation.framework */; };
 		A1C78E201852D058007E748D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C78E1F1852D058007E748D /* CoreGraphics.framework */; };
@@ -22,7 +23,7 @@
 		A1C78E4A1852D058007E748D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E481852D058007E748D /* InfoPlist.strings */; };
 		A1C78E4C1852D058007E748D /* KingTidesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E4B1852D058007E748D /* KingTidesTests.m */; };
 		A1C78E5E1852DB09007E748D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E5C1852DB09007E748D /* MainViewController.m */; };
-		A1C78E5F1852DB09007E748D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E5D1852DB09007E748D /* MainViewController.xib */; };
+		A1C78E611852E910007E748D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E601852E910007E748D /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 /* Begin PBXFileReference section */
 		0FDB6D2BF9F648068EEA3B25 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		275F62F30E5446AF947144A0 /* libPods-KingTidesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KingTidesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DC1803014A94FD89B2B549D /* UIImage+FixRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FixRotation.h"; sourceTree = "<group>"; };
+		2DC18473F8D9E0DABAACF7AD /* UIImage+FixRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FixRotation.m"; sourceTree = "<group>"; };
 		7316DA8D418A488C8C7A37E9 /* Pods-KingTidesTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KingTidesTests.xcconfig"; path = "../Pods/Pods-KingTidesTests.xcconfig"; sourceTree = "<group>"; };
 		A1C78E1A1852D058007E748D /* KingTides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KingTides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1C78E1D1852D058007E748D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -57,7 +60,7 @@
 		A1C78E4B1852D058007E748D /* KingTidesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KingTidesTests.m; sourceTree = "<group>"; };
 		A1C78E5B1852DB09007E748D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controllers/MainViewController.h; sourceTree = "<group>"; };
 		A1C78E5C1852DB09007E748D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controllers/MainViewController.m; sourceTree = "<group>"; };
-		A1C78E5D1852DB09007E748D /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = Controllers/MainViewController.xib; sourceTree = "<group>"; };
+		A1C78E601852E910007E748D /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = Views/MainViewController.xib; sourceTree = "<group>"; };
 		D9122C4D4E5D4BBC96BA43AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DC181CB2249AA67FBDDEA84 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2DC1803014A94FD89B2B549D /* UIImage+FixRotation.h */,
+				2DC18473F8D9E0DABAACF7AD /* UIImage+FixRotation.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		A1C78E111852D058007E748D = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +143,7 @@
 				A1C78E2D1852D058007E748D /* AppDelegate.m */,
 				A1C78E381852D058007E748D /* Images.xcassets */,
 				A1C78E241852D058007E748D /* Supporting Files */,
+				2DC181CB2249AA67FBDDEA84 /* Categories */,
 			);
 			path = KingTides;
 			sourceTree = "<group>";
@@ -169,7 +182,6 @@
 			children = (
 				A1C78E5B1852DB09007E748D /* MainViewController.h */,
 				A1C78E5C1852DB09007E748D /* MainViewController.m */,
-				A1C78E5D1852DB09007E748D /* MainViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -177,6 +189,7 @@
 		A1C78E571852D94E007E748D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1C78E601852E910007E748D /* MainViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -269,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1C78E391852D058007E748D /* Images.xcassets in Resources */,
-				A1C78E5F1852DB09007E748D /* MainViewController.xib in Resources */,
+				A1C78E611852E910007E748D /* MainViewController.xib in Resources */,
 				A1C78E281852D058007E748D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +368,7 @@
 				A1C78E2E1852D058007E748D /* AppDelegate.m in Sources */,
 				A1C78E5E1852DB09007E748D /* MainViewController.m in Sources */,
 				A1C78E2A1852D058007E748D /* main.m in Sources */,
+				2DC18D303FAE81E5AD010009 /* UIImage+FixRotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
