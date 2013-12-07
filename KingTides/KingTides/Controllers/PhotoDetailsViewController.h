@@ -7,7 +7,7 @@
 @property (nonatomic, strong)IBOutlet UIImageView *imageView;
 @property (nonatomic, strong)IBOutlet UITextField *nameTextField;
 @property (nonatomic, strong)IBOutlet UITextField *emailTextField;
-@property (nonatomic, strong)IBOutlet UITextField *descriptionTextField;
+@property (nonatomic, strong)IBOutlet UITextView *descriptionTextView;
 
 - (void)updatePhoto:(UIImage *)image;
 

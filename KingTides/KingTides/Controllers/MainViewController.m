@@ -4,6 +4,7 @@
 #import "WBSuccessNoticeView.h"
 #import "WBErrorNoticeView.h"
 #import "MapViewController.h"
+#import "KingTidesViewController.h"
 
 @interface MainViewController()
 
@@ -51,6 +52,14 @@
 
 - (IBAction)showMap:(id)sender {
   MapViewController *mapViewController = [[MapViewController alloc] init];
+  UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mapViewController];
+  navController.modalTransitionStyle = mapViewController.modalTransitionStyle;
+
+  [self presentViewController:navController animated:YES completion:nil];
+}
+
+- (IBAction)showKingTides:(id)sender {
+  KingTidesViewController *mapViewController = [[KingTidesViewController alloc] init];
   UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mapViewController];
   navController.modalTransitionStyle = mapViewController.modalTransitionStyle;
 

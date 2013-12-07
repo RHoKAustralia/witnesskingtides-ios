@@ -12,4 +12,7 @@
 
 - (IBAction)showTakeDialog:(id)sender;
 
+- (IBAction)showMap:(id)sender;
+
+- (IBAction)showKingTides:(id)sender;
 @end

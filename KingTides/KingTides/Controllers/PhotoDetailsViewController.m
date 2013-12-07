@@ -35,7 +35,7 @@
           @"PhotoDate": [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle],
           @"FirstName": self.nameTextField.text,
           @"LastName": @"",
-          @"Description":self.descriptionTextField.text,
+          @"Description":self.descriptionTextView.text,
           @"Email":self.emailTextField.text,
           @"Latitude": [NSNumber numberWithDouble:latitude],
           @"Longitude": [NSNumber numberWithDouble:longitude],

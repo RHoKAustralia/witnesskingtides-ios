@@ -34,6 +34,10 @@
 		A1C78E7B1853B37C007E748D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E791853B37C007E748D /* MapViewController.m */; };
 		A1C78E7E1853B3C6007E748D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E7D1853B3C6007E748D /* MapViewController.xib */; };
 		A1C78E801853B478007E748D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C78E7F1853B478007E748D /* MapKit.framework */; };
+		A1C78E891853B8E7007E748D /* KingTidesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E871853B8E7007E748D /* KingTidesViewController.m */; };
+		A1C78E8D1853B929007E748D /* KingTidesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E8C1853B929007E748D /* KingTidesViewController.xib */; };
+		A1C78E911853BC2B007E748D /* KingTideLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E8F1853BC2B007E748D /* KingTideLocationViewController.m */; };
+		A1C78E941853BC58007E748D /* KingTideLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E931853BC58007E748D /* KingTideLocationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +90,12 @@
 		A1C78E791853B37C007E748D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Controllers/MapViewController.m; sourceTree = "<group>"; };
 		A1C78E7D1853B3C6007E748D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = Views/MapViewController.xib; sourceTree = "<group>"; };
 		A1C78E7F1853B478007E748D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A1C78E861853B8E7007E748D /* KingTidesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KingTidesViewController.h; path = Controllers/KingTidesViewController.h; sourceTree = "<group>"; };
+		A1C78E871853B8E7007E748D /* KingTidesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KingTidesViewController.m; path = Controllers/KingTidesViewController.m; sourceTree = "<group>"; };
+		A1C78E8C1853B929007E748D /* KingTidesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KingTidesViewController.xib; path = Views/KingTidesViewController.xib; sourceTree = "<group>"; };
+		A1C78E8E1853BC2B007E748D /* KingTideLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KingTideLocationViewController.h; path = Controllers/KingTideLocationViewController.h; sourceTree = "<group>"; };
+		A1C78E8F1853BC2B007E748D /* KingTideLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KingTideLocationViewController.m; path = Controllers/KingTideLocationViewController.m; sourceTree = "<group>"; };
+		A1C78E931853BC58007E748D /* KingTideLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KingTideLocationViewController.xib; path = Views/KingTideLocationViewController.xib; sourceTree = "<group>"; };
 		D9122C4D4E5D4BBC96BA43AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -221,6 +231,10 @@
 				A1C78E6A1852EF28007E748D /* PhotoSelectionViewController.m */,
 				A1C78E781853B37C007E748D /* MapViewController.h */,
 				A1C78E791853B37C007E748D /* MapViewController.m */,
+				A1C78E861853B8E7007E748D /* KingTidesViewController.h */,
+				A1C78E871853B8E7007E748D /* KingTidesViewController.m */,
+				A1C78E8E1853BC2B007E748D /* KingTideLocationViewController.h */,
+				A1C78E8F1853BC2B007E748D /* KingTideLocationViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -228,6 +242,8 @@
 		A1C78E571852D94E007E748D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1C78E931853BC58007E748D /* KingTideLocationViewController.xib */,
+				A1C78E8C1853B929007E748D /* KingTidesViewController.xib */,
 				A1C78E7D1853B3C6007E748D /* MapViewController.xib */,
 				A1C78E6E1852EF6C007E748D /* PhotoSelectionViewController.xib */,
 				A1C78E671852E9E1007E748D /* PhotoDetailsViewController.xib */,
@@ -325,10 +341,12 @@
 			files = (
 				A1C78E6F1852EF6C007E748D /* PhotoSelectionViewController.xib in Resources */,
 				A1C78E7E1853B3C6007E748D /* MapViewController.xib in Resources */,
+				A1C78E941853BC58007E748D /* KingTideLocationViewController.xib in Resources */,
 				A1C78E391852D058007E748D /* Images.xcassets in Resources */,
 				A1C78E611852E910007E748D /* MainViewController.xib in Resources */,
 				A1C78E681852E9E1007E748D /* PhotoDetailsViewController.xib in Resources */,
 				A1C78E281852D058007E748D /* InfoPlist.strings in Resources */,
+				A1C78E8D1853B929007E748D /* KingTidesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,9 +433,11 @@
 				A1C78E2E1852D058007E748D /* AppDelegate.m in Sources */,
 				A1C78E7B1853B37C007E748D /* MapViewController.m in Sources */,
 				A1C78E5E1852DB09007E748D /* MainViewController.m in Sources */,
+				A1C78E891853B8E7007E748D /* KingTidesViewController.m in Sources */,
 				A1C78E7218532561007E748D /* NSData+Base64.m in Sources */,
 				A1C78E2A1852D058007E748D /* main.m in Sources */,
 				2DC18D303FAE81E5AD010009 /* UIImage+FixRotation.m in Sources */,
+				A1C78E911853BC2B007E748D /* KingTideLocationViewController.m in Sources */,
 				A1C78E651852E9AB007E748D /* PhotoDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
