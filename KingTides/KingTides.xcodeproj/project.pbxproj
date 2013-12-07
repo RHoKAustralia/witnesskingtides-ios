@@ -38,6 +38,7 @@
 		A1C78E8D1853B929007E748D /* KingTidesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E8C1853B929007E748D /* KingTidesViewController.xib */; };
 		A1C78E911853BC2B007E748D /* KingTideLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E8F1853BC2B007E748D /* KingTideLocationViewController.m */; };
 		A1C78E941853BC58007E748D /* KingTideLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E931853BC58007E748D /* KingTideLocationViewController.xib */; };
+		A1C78E971853D912007E748D /* NSDate+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E961853D912007E748D /* NSDate+Formatting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		A1C78E8E1853BC2B007E748D /* KingTideLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KingTideLocationViewController.h; path = Controllers/KingTideLocationViewController.h; sourceTree = "<group>"; };
 		A1C78E8F1853BC2B007E748D /* KingTideLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KingTideLocationViewController.m; path = Controllers/KingTideLocationViewController.m; sourceTree = "<group>"; };
 		A1C78E931853BC58007E748D /* KingTideLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KingTideLocationViewController.xib; path = Views/KingTideLocationViewController.xib; sourceTree = "<group>"; };
+		A1C78E951853D912007E748D /* NSDate+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formatting.h"; sourceTree = "<group>"; };
+		A1C78E961853D912007E748D /* NSDate+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatting.m"; sourceTree = "<group>"; };
 		D9122C4D4E5D4BBC96BA43AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,6 +133,8 @@
 		2DC181CB2249AA67FBDDEA84 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A1C78E951853D912007E748D /* NSDate+Formatting.h */,
+				A1C78E961853D912007E748D /* NSDate+Formatting.m */,
 				A1C78E7018532561007E748D /* NSData+Base64.h */,
 				A1C78E7118532561007E748D /* NSData+Base64.m */,
 				2DC1803014A94FD89B2B549D /* UIImage+FixRotation.h */,
@@ -431,6 +436,7 @@
 				A1C78E75185336CA007E748D /* LocationManager.m in Sources */,
 				A1C78E6C1852EF28007E748D /* PhotoSelectionViewController.m in Sources */,
 				A1C78E2E1852D058007E748D /* AppDelegate.m in Sources */,
+				A1C78E971853D912007E748D /* NSDate+Formatting.m in Sources */,
 				A1C78E7B1853B37C007E748D /* MapViewController.m in Sources */,
 				A1C78E5E1852DB09007E748D /* MainViewController.m in Sources */,
 				A1C78E891853B8E7007E748D /* KingTidesViewController.m in Sources */,

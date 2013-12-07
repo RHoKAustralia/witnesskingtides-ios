@@ -3,6 +3,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "AFHTTPSessionManager.h"
 #import "NSData+Base64.h"
+#import "NSDate+Formatting.h"
 
 @interface PhotoDetailsViewController ()
 
@@ -32,7 +33,7 @@
     longitude = self.location.coordinate.longitude;
   }
   NSDictionary *parameters = @{
-          @"PhotoDate": [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle],
+          @"CreationTime": [[NSDate date] stringByFormattingISO8601Date],
           @"FirstName": self.nameTextField.text,
           @"LastName": @"",
           @"Description":self.descriptionTextView.text,
