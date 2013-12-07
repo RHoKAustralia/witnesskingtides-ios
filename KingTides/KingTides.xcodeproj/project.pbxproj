@@ -28,6 +28,7 @@
 		A1C78E681852E9E1007E748D /* PhotoDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E671852E9E1007E748D /* PhotoDetailsViewController.xib */; };
 		A1C78E6C1852EF28007E748D /* PhotoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E6A1852EF28007E748D /* PhotoSelectionViewController.m */; };
 		A1C78E6F1852EF6C007E748D /* PhotoSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E6E1852EF6C007E748D /* PhotoSelectionViewController.xib */; };
+		A1C78E7218532561007E748D /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E7118532561007E748D /* NSData+Base64.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		A1C78E691852EF28007E748D /* PhotoSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoSelectionViewController.h; path = Controllers/PhotoSelectionViewController.h; sourceTree = "<group>"; };
 		A1C78E6A1852EF28007E748D /* PhotoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoSelectionViewController.m; path = Controllers/PhotoSelectionViewController.m; sourceTree = "<group>"; };
 		A1C78E6E1852EF6C007E748D /* PhotoSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoSelectionViewController.xib; path = Views/PhotoSelectionViewController.xib; sourceTree = "<group>"; };
+		A1C78E7018532561007E748D /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		A1C78E7118532561007E748D /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		D9122C4D4E5D4BBC96BA43AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +106,8 @@
 		2DC181CB2249AA67FBDDEA84 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A1C78E7018532561007E748D /* NSData+Base64.h */,
+				A1C78E7118532561007E748D /* NSData+Base64.m */,
 				2DC1803014A94FD89B2B549D /* UIImage+FixRotation.h */,
 				2DC18473F8D9E0DABAACF7AD /* UIImage+FixRotation.m */,
 			);
@@ -386,6 +391,7 @@
 				A1C78E6C1852EF28007E748D /* PhotoSelectionViewController.m in Sources */,
 				A1C78E2E1852D058007E748D /* AppDelegate.m in Sources */,
 				A1C78E5E1852DB09007E748D /* MainViewController.m in Sources */,
+				A1C78E7218532561007E748D /* NSData+Base64.m in Sources */,
 				A1C78E2A1852D058007E748D /* main.m in Sources */,
 				2DC18D303FAE81E5AD010009 /* UIImage+FixRotation.m in Sources */,
 				A1C78E651852E9AB007E748D /* PhotoDetailsViewController.m in Sources */,
@@ -514,6 +520,7 @@
 				GCC_PREFIX_HEADER = "KingTides/KingTides-Prefix.pch";
 				INFOPLIST_FILE = "KingTides/KingTides-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/../Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -528,6 +535,7 @@
 				GCC_PREFIX_HEADER = "KingTides/KingTides-Prefix.pch";
 				INFOPLIST_FILE = "KingTides/KingTides-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/../Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -3,6 +3,7 @@
 #import "PhotoSelectionViewController.h"
 #import "WBSuccessNoticeView.h"
 #import "WBStickyNoticeView.h"
+#import "WBErrorNoticeView.h"
 
 
 @interface MainViewController()
@@ -33,12 +34,12 @@
 {
   [super viewDidLoad];
   [[NSNotificationCenter defaultCenter] addObserverForName:@"UploadSuccess" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-    WBSuccessNoticeView *successNoticeView = [[WBSuccessNoticeView alloc] initWithView:self.view title:NSLocalizedString(@"incidentUpload:Successful:Title", @"Successfully reported incident.")];
+    WBSuccessNoticeView *successNoticeView = [[WBSuccessNoticeView alloc] initWithView:self.view title:@"Successfully reported incident."];
     successNoticeView.alpha = 0.9;
     [successNoticeView show];
   }];
-  [[NSNotificationCenter defaultCenter] addObserverForName:@"UploadFailed" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-    WBStickyNoticeView *noticeView = [[WBStickyNoticeView alloc] initWithView:self.view title:NSLocalizedString(@"incidentUpload:Failed:Title", @"Could not upload incident at this time.")];
+  [[NSNotificationCenter defaultCenter] addObserverForName:@"UploadError" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+    WBErrorNoticeView *noticeView = [WBErrorNoticeView errorNoticeInView:self.view title:@"Network Error" message: @"Could not upload incident at this time."];
     noticeView.alpha = 0.9;
     noticeView.sticky = NO;
     [noticeView show];
