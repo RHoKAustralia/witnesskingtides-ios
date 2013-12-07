@@ -24,6 +24,10 @@
 		A1C78E4C1852D058007E748D /* KingTidesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E4B1852D058007E748D /* KingTidesTests.m */; };
 		A1C78E5E1852DB09007E748D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E5C1852DB09007E748D /* MainViewController.m */; };
 		A1C78E611852E910007E748D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E601852E910007E748D /* MainViewController.xib */; };
+		A1C78E651852E9AB007E748D /* PhotoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E631852E9AB007E748D /* PhotoDetailsViewController.m */; };
+		A1C78E681852E9E1007E748D /* PhotoDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E671852E9E1007E748D /* PhotoDetailsViewController.xib */; };
+		A1C78E6C1852EF28007E748D /* PhotoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E6A1852EF28007E748D /* PhotoSelectionViewController.m */; };
+		A1C78E6F1852EF6C007E748D /* PhotoSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E6E1852EF6C007E748D /* PhotoSelectionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,12 @@
 		A1C78E5B1852DB09007E748D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controllers/MainViewController.h; sourceTree = "<group>"; };
 		A1C78E5C1852DB09007E748D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controllers/MainViewController.m; sourceTree = "<group>"; };
 		A1C78E601852E910007E748D /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = Views/MainViewController.xib; sourceTree = "<group>"; };
+		A1C78E621852E9AB007E748D /* PhotoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoDetailsViewController.h; path = Controllers/PhotoDetailsViewController.h; sourceTree = "<group>"; };
+		A1C78E631852E9AB007E748D /* PhotoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoDetailsViewController.m; path = Controllers/PhotoDetailsViewController.m; sourceTree = "<group>"; };
+		A1C78E671852E9E1007E748D /* PhotoDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoDetailsViewController.xib; path = Views/PhotoDetailsViewController.xib; sourceTree = "<group>"; };
+		A1C78E691852EF28007E748D /* PhotoSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoSelectionViewController.h; path = Controllers/PhotoSelectionViewController.h; sourceTree = "<group>"; };
+		A1C78E6A1852EF28007E748D /* PhotoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoSelectionViewController.m; path = Controllers/PhotoSelectionViewController.m; sourceTree = "<group>"; };
+		A1C78E6E1852EF6C007E748D /* PhotoSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoSelectionViewController.xib; path = Views/PhotoSelectionViewController.xib; sourceTree = "<group>"; };
 		D9122C4D4E5D4BBC96BA43AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -182,6 +192,10 @@
 			children = (
 				A1C78E5B1852DB09007E748D /* MainViewController.h */,
 				A1C78E5C1852DB09007E748D /* MainViewController.m */,
+				A1C78E621852E9AB007E748D /* PhotoDetailsViewController.h */,
+				A1C78E631852E9AB007E748D /* PhotoDetailsViewController.m */,
+				A1C78E691852EF28007E748D /* PhotoSelectionViewController.h */,
+				A1C78E6A1852EF28007E748D /* PhotoSelectionViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -189,6 +203,8 @@
 		A1C78E571852D94E007E748D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1C78E6E1852EF6C007E748D /* PhotoSelectionViewController.xib */,
+				A1C78E671852E9E1007E748D /* PhotoDetailsViewController.xib */,
 				A1C78E601852E910007E748D /* MainViewController.xib */,
 			);
 			name = Views;
@@ -281,8 +297,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C78E6F1852EF6C007E748D /* PhotoSelectionViewController.xib in Resources */,
 				A1C78E391852D058007E748D /* Images.xcassets in Resources */,
 				A1C78E611852E910007E748D /* MainViewController.xib in Resources */,
+				A1C78E681852E9E1007E748D /* PhotoDetailsViewController.xib in Resources */,
 				A1C78E281852D058007E748D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,10 +383,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C78E6C1852EF28007E748D /* PhotoSelectionViewController.m in Sources */,
 				A1C78E2E1852D058007E748D /* AppDelegate.m in Sources */,
 				A1C78E5E1852DB09007E748D /* MainViewController.m in Sources */,
 				A1C78E2A1852D058007E748D /* main.m in Sources */,
 				2DC18D303FAE81E5AD010009 /* UIImage+FixRotation.m in Sources */,
+				A1C78E651852E9AB007E748D /* PhotoDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
