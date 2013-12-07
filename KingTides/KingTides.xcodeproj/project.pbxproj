@@ -15,15 +15,14 @@
 		A1C78E281852D058007E748D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E261852D058007E748D /* InfoPlist.strings */; };
 		A1C78E2A1852D058007E748D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E291852D058007E748D /* main.m */; };
 		A1C78E2E1852D058007E748D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E2D1852D058007E748D /* AppDelegate.m */; };
-		A1C78E311852D058007E748D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E2F1852D058007E748D /* Main_iPhone.storyboard */; };
-		A1C78E341852D058007E748D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E321852D058007E748D /* Main_iPad.storyboard */; };
-		A1C78E371852D058007E748D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E361852D058007E748D /* ViewController.m */; };
 		A1C78E391852D058007E748D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E381852D058007E748D /* Images.xcassets */; };
 		A1C78E401852D058007E748D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C78E3F1852D058007E748D /* XCTest.framework */; };
 		A1C78E411852D058007E748D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C78E1D1852D058007E748D /* Foundation.framework */; };
 		A1C78E421852D058007E748D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C78E211852D058007E748D /* UIKit.framework */; };
 		A1C78E4A1852D058007E748D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E481852D058007E748D /* InfoPlist.strings */; };
 		A1C78E4C1852D058007E748D /* KingTidesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E4B1852D058007E748D /* KingTidesTests.m */; };
+		A1C78E5E1852DB09007E748D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E5C1852DB09007E748D /* MainViewController.m */; };
+		A1C78E5F1852DB09007E748D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E5D1852DB09007E748D /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,16 +49,15 @@
 		A1C78E2B1852D058007E748D /* KingTides-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KingTides-Prefix.pch"; sourceTree = "<group>"; };
 		A1C78E2C1852D058007E748D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A1C78E2D1852D058007E748D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A1C78E301852D058007E748D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		A1C78E331852D058007E748D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		A1C78E351852D058007E748D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A1C78E361852D058007E748D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A1C78E381852D058007E748D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A1C78E3E1852D058007E748D /* KingTidesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KingTidesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1C78E3F1852D058007E748D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A1C78E471852D058007E748D /* KingTidesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KingTidesTests-Info.plist"; sourceTree = "<group>"; };
 		A1C78E491852D058007E748D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1C78E4B1852D058007E748D /* KingTidesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KingTidesTests.m; sourceTree = "<group>"; };
+		A1C78E5B1852DB09007E748D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controllers/MainViewController.h; sourceTree = "<group>"; };
+		A1C78E5C1852DB09007E748D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controllers/MainViewController.m; sourceTree = "<group>"; };
+		A1C78E5D1852DB09007E748D /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = Controllers/MainViewController.xib; sourceTree = "<group>"; };
 		D9122C4D4E5D4BBC96BA43AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -126,12 +124,11 @@
 		A1C78E231852D058007E748D /* KingTides */ = {
 			isa = PBXGroup;
 			children = (
+				A1C78E581852D95E007E748D /* Services */,
+				A1C78E571852D94E007E748D /* Views */,
+				A1C78E561852D922007E748D /* Controllers */,
 				A1C78E2C1852D058007E748D /* AppDelegate.h */,
 				A1C78E2D1852D058007E748D /* AppDelegate.m */,
-				A1C78E2F1852D058007E748D /* Main_iPhone.storyboard */,
-				A1C78E321852D058007E748D /* Main_iPad.storyboard */,
-				A1C78E351852D058007E748D /* ViewController.h */,
-				A1C78E361852D058007E748D /* ViewController.m */,
 				A1C78E381852D058007E748D /* Images.xcassets */,
 				A1C78E241852D058007E748D /* Supporting Files */,
 			);
@@ -165,6 +162,30 @@
 				A1C78E481852D058007E748D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1C78E561852D922007E748D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1C78E5B1852DB09007E748D /* MainViewController.h */,
+				A1C78E5C1852DB09007E748D /* MainViewController.m */,
+				A1C78E5D1852DB09007E748D /* MainViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A1C78E571852D94E007E748D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A1C78E581852D95E007E748D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +255,6 @@
 			mainGroup = A1C78E111852D058007E748D;
 			productRefGroup = A1C78E1B1852D058007E748D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-			);
 			projectRoot = "";
 			targets = (
 				A1C78E191852D058007E748D /* KingTides */,
@@ -249,9 +268,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1C78E341852D058007E748D /* Main_iPad.storyboard in Resources */,
 				A1C78E391852D058007E748D /* Images.xcassets in Resources */,
-				A1C78E311852D058007E748D /* Main_iPhone.storyboard in Resources */,
+				A1C78E5F1852DB09007E748D /* MainViewController.xib in Resources */,
 				A1C78E281852D058007E748D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,8 +352,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1C78E371852D058007E748D /* ViewController.m in Sources */,
 				A1C78E2E1852D058007E748D /* AppDelegate.m in Sources */,
+				A1C78E5E1852DB09007E748D /* MainViewController.m in Sources */,
 				A1C78E2A1852D058007E748D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,22 +383,6 @@
 				A1C78E271852D058007E748D /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A1C78E2F1852D058007E748D /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1C78E301852D058007E748D /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		A1C78E321852D058007E748D /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1C78E331852D058007E748D /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		A1C78E481852D058007E748D /* InfoPlist.strings */ = {
@@ -559,6 +561,7 @@
 				A1C78E511852D058007E748D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1C78E521852D058007E748D /* Build configuration list for PBXNativeTarget "KingTidesTests" */ = {
 			isa = XCConfigurationList;
@@ -567,6 +570,7 @@
 				A1C78E541852D058007E748D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

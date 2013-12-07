@@ -7,13 +7,22 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  MainViewController *rootViewController = [[MainViewController alloc] init];
+//  rootViewController.delegate = self;
+  self.window.rootViewController = rootViewController;
+
+//  self.moodService = [[MoodService alloc] initWithBaseUrl:[NSURL URLWithString:@"http://localhost:3000"]];
+
+  [self.window makeKeyAndVisible];
+
+  return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

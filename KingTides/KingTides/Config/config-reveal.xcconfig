@@ -1,0 +1,6 @@
+#include "config-debug.xcconfig"
+
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/Kiwi" "${PODS_ROOT}/Headers/TestFlightSDK"
+LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/TestFlightSDK"
+FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework Reveal

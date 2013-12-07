@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  KingTides
 //
 //  Created by Andrew Spinks on 7/12/2013.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MainViewController : UIViewController
 
 @end
