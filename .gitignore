@@ -1,0 +1,23 @@
+# Xcode
+build/*
+!default.xcworkspace
+!project.xcworkspace
+KingTides/KingTides.xcodeproj/project.xcworkspace/xcuserdata/
+KingTides/KingTides.xcodeproj/xcuserdata
+KingTides.xcodeproj/project.xcworkspace/xcuserdata
+KingTides.xcodeproj/xcuserdata
+KingTides.xcworkspace/xcuserdata
+Pods/Pods.xcodeproj/xcuserdata
+# Artifacts
+*.ipa
+*.tar.gz
+*.dSYM.zip
+.idea
+
+# tests and coverage
+tests
+coverage.zip
+compile_commands.json
+coverage.info
+output
+integration/tmp
