@@ -7,6 +7,7 @@
 @interface PhotoDetailsViewController ()
 
 @property(nonatomic, strong) UIImage *photo;
+@property(nonatomic, strong) CLLocation *location;
 
 @end
 
@@ -25,14 +26,19 @@
   NSData *data = UIImageJPEGRepresentation(self.photo, 1.0);
   AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
   manager.requestSerializer = [AFJSONRequestSerializer serializer];
+  double latitude, longitude = 0;
+  if(self.location) {
+    latitude = self.location.coordinate.latitude;
+    longitude = self.location.coordinate.longitude;
+  }
   NSDictionary *parameters = @{
           @"PhotoDate": [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle],
           @"FirstName": self.nameTextField.text,
           @"LastName": @"",
           @"Description":self.descriptionTextField.text,
           @"Email":self.emailTextField.text,
-          @"Latitude": @234,
-          @"Longitude": @234,
+          @"Latitude": [NSNumber numberWithDouble:latitude],
+          @"Longitude": [NSNumber numberWithDouble:longitude],
           @"Photo": [data base64EncodedString]
   };
   [manager POST:@"http://example.com/resources.json" parameters:parameters success:^(NSURLSessionDataTask *operation, id responseObject) {
@@ -66,4 +72,7 @@
   // Dispose of any resources that can be recreated.
 }
 
+- (void)updateLocation:(CLLocation *)location {
+  self.location = location;
+}
 @end

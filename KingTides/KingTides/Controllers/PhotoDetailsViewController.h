@@ -1,5 +1,6 @@
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface PhotoDetailsViewController : UIViewController
 
@@ -9,4 +10,6 @@
 @property (nonatomic, strong)IBOutlet UITextField *descriptionTextField;
 
 - (void)updatePhoto:(UIImage *)image;
+
+- (void)updateLocation:(CLLocation *)location;
 @end

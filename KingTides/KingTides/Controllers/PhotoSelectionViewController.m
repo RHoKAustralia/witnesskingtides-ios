@@ -1,12 +1,15 @@
 #import "PhotoSelectionViewController.h"
 #import "UIImage+FixRotation.h"
 #import "PhotoDetailsViewController.h"
+#import "LocationManager.h"
 
 @interface PhotoSelectionViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
 
 @property(nonatomic, strong) UIImage *photo;
 @property(nonatomic, strong) UIImagePickerController *imgPicker;
-@property (nonatomic, strong) PhotoDetailsViewController *photoDetailsViewController;
+@property(nonatomic, strong) PhotoDetailsViewController *photoDetailsViewController;
+@property(nonatomic, strong) LocationManager *locationManager;
+@property(nonatomic, strong) CLLocation *currentLocation;
 
 @end
 
@@ -25,6 +28,12 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.photoDetailsViewController = [[PhotoDetailsViewController alloc] init];
+  self.locationManager = [[LocationManager alloc] init];
+  [self.locationManager findLocationWithHighAccuracy:^(CLLocation *location) {
+    self.currentLocation = location;
+  } failure:^(NSString *error) {
+    NSLog(@"failed to get location: %@", error);
+  }];
 //  self.detailSelectionController.delegate = self;
 }
 
@@ -79,6 +88,7 @@
   }
   [self.navigationController pushViewController:self.photoDetailsViewController animated:YES];
   [self.photoDetailsViewController updatePhoto:self.photo];
+  [self.photoDetailsViewController updateLocation:self.currentLocation];
 }
 
 @end
