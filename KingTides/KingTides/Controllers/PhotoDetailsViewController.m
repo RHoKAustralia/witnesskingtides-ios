@@ -18,7 +18,6 @@
   self = [super initWithNibName:nil bundle:nil];
   if (self) {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(uploadPhoto)];
-//    self.navigationItem.rightBarButtonItem.enabled = NO;
   }
   return self;
 }
@@ -56,7 +55,6 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -70,7 +68,6 @@
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
 }
 
 - (void)updateLocation:(CLLocation *)location {

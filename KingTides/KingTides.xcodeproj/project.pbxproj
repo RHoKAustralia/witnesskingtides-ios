@@ -39,6 +39,11 @@
 		A1C78E911853BC2B007E748D /* KingTideLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E8F1853BC2B007E748D /* KingTideLocationViewController.m */; };
 		A1C78E941853BC58007E748D /* KingTideLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E931853BC58007E748D /* KingTideLocationViewController.xib */; };
 		A1C78E971853D912007E748D /* NSDate+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C78E961853D912007E748D /* NSDate+Formatting.m */; };
+		A1C78E9E1853E79B007E748D /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E9B1853E79B007E748D /* home.jpg */; };
+		A1C78E9F1853E79B007E748D /* upload.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E9C1853E79B007E748D /* upload.jpg */; };
+		A1C78EA01853E79B007E748D /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C78E9D1853E79B007E748D /* banner.png */; };
+		A1DE4FA11853F84F0024D33C /* default-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1DE4FA01853F84F0024D33C /* default-background.jpg */; };
+		A1DE4FA31853FEBB0024D33C /* uploadPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = A1DE4FA21853FEBB0024D33C /* uploadPhoto.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +104,11 @@
 		A1C78E931853BC58007E748D /* KingTideLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KingTideLocationViewController.xib; path = Views/KingTideLocationViewController.xib; sourceTree = "<group>"; };
 		A1C78E951853D912007E748D /* NSDate+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formatting.h"; sourceTree = "<group>"; };
 		A1C78E961853D912007E748D /* NSDate+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatting.m"; sourceTree = "<group>"; };
+		A1C78E9B1853E79B007E748D /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = home.jpg; path = Resources/home.jpg; sourceTree = "<group>"; };
+		A1C78E9C1853E79B007E748D /* upload.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = upload.jpg; path = Resources/upload.jpg; sourceTree = "<group>"; };
+		A1C78E9D1853E79B007E748D /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banner.png; path = Resources/banner.png; sourceTree = "<group>"; };
+		A1DE4FA01853F84F0024D33C /* default-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "default-background.jpg"; path = "Resources/default-background.jpg"; sourceTree = "<group>"; };
+		A1DE4FA21853FEBB0024D33C /* uploadPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uploadPhoto.png; path = Resources/uploadPhoto.png; sourceTree = "<group>"; };
 		D9122C4D4E5D4BBC96BA43AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -182,6 +192,7 @@
 		A1C78E231852D058007E748D /* KingTides */ = {
 			isa = PBXGroup;
 			children = (
+				A1C78E9A1853E403007E748D /* Resources */,
 				A1C78E73185336C9007E748D /* LocationManager.h */,
 				A1C78E74185336C9007E748D /* LocationManager.m */,
 				A1C78E581852D95E007E748D /* Services */,
@@ -262,6 +273,18 @@
 			children = (
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		A1C78E9A1853E403007E748D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A1DE4FA21853FEBB0024D33C /* uploadPhoto.png */,
+				A1DE4FA01853F84F0024D33C /* default-background.jpg */,
+				A1C78E9B1853E79B007E748D /* home.jpg */,
+				A1C78E9C1853E79B007E748D /* upload.jpg */,
+				A1C78E9D1853E79B007E748D /* banner.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,9 +371,14 @@
 				A1C78E7E1853B3C6007E748D /* MapViewController.xib in Resources */,
 				A1C78E941853BC58007E748D /* KingTideLocationViewController.xib in Resources */,
 				A1C78E391852D058007E748D /* Images.xcassets in Resources */,
+				A1DE4FA31853FEBB0024D33C /* uploadPhoto.png in Resources */,
+				A1C78E9E1853E79B007E748D /* home.jpg in Resources */,
 				A1C78E611852E910007E748D /* MainViewController.xib in Resources */,
 				A1C78E681852E9E1007E748D /* PhotoDetailsViewController.xib in Resources */,
+				A1DE4FA11853F84F0024D33C /* default-background.jpg in Resources */,
+				A1C78EA01853E79B007E748D /* banner.png in Resources */,
 				A1C78E281852D058007E748D /* InfoPlist.strings in Resources */,
+				A1C78E9F1853E79B007E748D /* upload.jpg in Resources */,
 				A1C78E8D1853B929007E748D /* KingTidesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

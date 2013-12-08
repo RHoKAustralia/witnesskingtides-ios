@@ -19,8 +19,10 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
   self.locations = @[@"HERVEY BAY", @"BUNDABERG", @"WADDY POINT", @"NOOSAVILLE"];
+  self.tableView.opaque = NO;
+  self.tableView.backgroundColor = [UIColor clearColor];
+  self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"default-background.jpg"]];
   [self.tableView reloadData];
 }
 
@@ -51,8 +53,30 @@
   }
 
   cell.textLabel.text = self.locations[(NSUInteger) indexPath.row];
+  CGRect frame = cell.textLabel.frame;
+  frame.size.height = 20;
+  cell.textLabel.frame = frame;
+  cell.backgroundColor = [UIColor clearColor];
+  cell.textLabel.textColor = [UIColor whiteColor];
+  cell.textLabel.backgroundColor = [UIColor colorWithRed:(68.0f/255.0f) green:(168.0f/255.0f) blue:(218.0f/255.0f) alpha:1];
 
   return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+  // This will create a "invisible" footer
+  return 0.01f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+  UIView *view = [[UIView alloc] init];
+  view.backgroundColor = [UIColor clearColor];
+  return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+  // This will create a "invisible" footer
+  return 40.f;
 }
 
 
