@@ -41,7 +41,7 @@
           @"Longitude": [NSNumber numberWithDouble:longitude],
           @"Photo": [data base64EncodedString]
   };
-  [manager POST:@"http://example.com/resources.json" parameters:parameters success:^(NSURLSessionDataTask *operation, id responseObject) {
+  [manager POST:@"http://witnesskingtides.azurewebsites.net/api/photo/" parameters:parameters success:^(NSURLSessionDataTask *operation, id responseObject) {
     NSLog(@"JSON: %@", responseObject);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UploadSuccess" object:self userInfo:nil];
   } failure:^(NSURLSessionDataTask *operation, NSError *error) {
