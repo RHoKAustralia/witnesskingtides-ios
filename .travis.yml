@@ -1,0 +1,3 @@
+language: objective-c
+xcode_workspace: KingTides.xcworkspace
+xcode_scheme: KingTides
