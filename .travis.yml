@@ -1,3 +1,4 @@
 language: objective-c
 xcode_workspace: KingTides.xcworkspace
 xcode_scheme: KingTides
+rvm: 2.0.0
