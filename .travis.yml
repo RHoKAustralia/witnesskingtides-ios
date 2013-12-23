@@ -1,5 +1,5 @@
 language: objective-c
 xcode_workspace: KingTides.xcworkspace
 xcode_scheme: KingTides
-before_install: bundle install
+before_install: gem install cocoapods
 rvm: 2.0.0
