@@ -11,14 +11,14 @@ fi
 
 # Thanks @djacobs https://gist.github.com/djacobs/2411095
 APPNAME=KingTides
-PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_UUID.mobileprovision"
+PROVISIONING_PROFILE="./Provisioning/KingTides_Ad_Hoc.mobileprovision"
 RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'`
-OUTPUTDIR="$PWD/build/Release-iphoneos"
+OUTPUTDIR=`xctool -workspace $APPNAME.xcworkspace -scheme $APPNAME -showBuildSettings | grep ' BUILT_PRODUCTS_DIR ' | awk '{ print $3 }'`
 
 echo "********************"
 echo "*     Signing      *"
 echo "********************"
-xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APPNAME.app" -o "$OUTPUTDIR/$APPNAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APPNAME.app" -o "$OUTPUTDIR/$APPNAME.ipa" -sign "iPhone Distribution" -embed "$PROVISIONING_PROFILE"
 
 RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
 
