@@ -1,7 +1,3 @@
-#!/bin/sh
-set -e
-export LC_ALL="en_US.UTF-8"
-
 security create-keychain -p travis ios-build.keychain
 # security import ./scripts/travis/apple.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
 # security import ./scripts/travis/dist.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign

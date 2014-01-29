@@ -1,6 +1,4 @@
 #!/bin/sh
-set -e
-export LC_ALL="en_US.UTF-8"
 
 if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
   echo "This is a pull request. No deployment will be done."
