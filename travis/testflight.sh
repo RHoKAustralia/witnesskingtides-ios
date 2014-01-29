@@ -10,7 +10,7 @@ if [[ "$TRAVIS_BRANCH" != "master" ]]; then
 fi
 
 # Thanks @djacobs https://gist.github.com/djacobs/2411095
-
+APPNAME=KingTides
 PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_UUID.mobileprovision"
 RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'`
 OUTPUTDIR="$PWD/build/Release-iphoneos"
