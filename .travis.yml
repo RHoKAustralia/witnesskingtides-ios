@@ -1,6 +1,4 @@
 language: objective-c
-xcode_workspace: KingTides.xcworkspace
-xcode_scheme: KingTides
 before_install: gem install cocoapods
 before_script:
 - ./travis/add-key.sh
@@ -8,6 +6,7 @@ after_script:
 - ./travis/remove-key.sh
 after_success:
 - ./travis/testflight.sh
+script: xctool -workspace KingTides.xcworkspace -scheme KingTides -configuration Release build
 rvm: 2.0.0
 env:
   global:
