@@ -10,6 +10,8 @@ if [[ "$TRAVIS_BRANCH" != "master" ]]; then
 fi
 
 # Thanks @djacobs https://gist.github.com/djacobs/2411095
+xctool -workspace KingTides.xcworkspace -scheme KingTides -configuration Release build
+
 APPNAME=KingTides
 PROVISIONING_PROFILE="./Provisioning/KingTides_Ad_Hoc.mobileprovision"
 RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'`
