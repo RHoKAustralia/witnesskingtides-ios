@@ -6,5 +6,5 @@ pod 'AFNetworking'
 pod 'NoticeView'
 
 target :KingTidesTests, :exclusive => true do
-  pod 'Kiwi'
+  pod 'Kiwi/XCTest', git: 'https://github.com/allending/Kiwi'
 end

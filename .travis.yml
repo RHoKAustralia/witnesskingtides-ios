@@ -6,7 +6,7 @@ after_script:
 - ./travis/remove-key.sh
 after_success:
 - ./travis/testflight.sh
-script: xctool -workspace KingTides.xcworkspace -scheme KingTides -configuration Release build
+script: xctool -workspace KingTides.xcworkspace -scheme KingTides -configuration Debug test -sdk iphonesimulator
 rvm: 2.0.0
 env:
   global:

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1B09B32F07FA468492CDCDF7 /* libPods-KingTidesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275F62F30E5446AF947144A0 /* libPods-KingTidesTests.a */; };
+		2DC180043D587F784F8B1A1C /* KingTidesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18A5E77B0EA614F919963 /* KingTidesService.m */; };
+		2DC18084ECCE63BEEE83D587 /* KingTidesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18A5E77B0EA614F919963 /* KingTidesService.m */; };
 		2DC18D303FAE81E5AD010009 /* UIImage+FixRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18473F8D9E0DABAACF7AD /* UIImage+FixRotation.m */; };
 		8C562782518E4AF7A4E7632C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9122C4D4E5D4BBC96BA43AA /* libPods.a */; };
 		A1C78E1E1852D058007E748D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C78E1D1852D058007E748D /* Foundation.framework */; };
@@ -60,7 +62,9 @@
 		0FDB6D2BF9F648068EEA3B25 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		275F62F30E5446AF947144A0 /* libPods-KingTidesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KingTidesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC1803014A94FD89B2B549D /* UIImage+FixRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FixRotation.h"; sourceTree = "<group>"; };
+		2DC183B32D082F337564C64C /* KingTidesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KingTidesService.h; path = Services/KingTidesService.h; sourceTree = "<group>"; };
 		2DC18473F8D9E0DABAACF7AD /* UIImage+FixRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FixRotation.m"; sourceTree = "<group>"; };
+		2DC18A5E77B0EA614F919963 /* KingTidesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KingTidesService.m; path = Services/KingTidesService.m; sourceTree = "<group>"; };
 		7316DA8D418A488C8C7A37E9 /* Pods-KingTidesTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KingTidesTests.xcconfig"; path = "../Pods/Pods-KingTidesTests.xcconfig"; sourceTree = "<group>"; };
 		A1C78E1A1852D058007E748D /* KingTides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KingTides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1C78E1D1852D058007E748D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -203,6 +207,8 @@
 				A1C78E381852D058007E748D /* Images.xcassets */,
 				A1C78E241852D058007E748D /* Supporting Files */,
 				2DC181CB2249AA67FBDDEA84 /* Categories */,
+				2DC18A5E77B0EA614F919963 /* KingTidesService.m */,
+				2DC183B32D082F337564C64C /* KingTidesService.h */,
 			);
 			path = KingTides;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 				2DC18D303FAE81E5AD010009 /* UIImage+FixRotation.m in Sources */,
 				A1C78E911853BC2B007E748D /* KingTideLocationViewController.m in Sources */,
 				A1C78E651852E9AB007E748D /* PhotoDetailsViewController.m in Sources */,
+				2DC18084ECCE63BEEE83D587 /* KingTidesService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1C78E4C1852D058007E748D /* KingTidesTests.m in Sources */,
+				2DC180043D587F784F8B1A1C /* KingTidesService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

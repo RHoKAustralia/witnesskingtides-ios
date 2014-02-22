@@ -5,6 +5,5 @@
 #import "Pods-KingTidesTests-environment.h"
 
 
-
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 

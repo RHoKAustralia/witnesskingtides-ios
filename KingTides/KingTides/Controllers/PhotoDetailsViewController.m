@@ -4,12 +4,13 @@
 #import "AFHTTPSessionManager.h"
 #import "NSData+Base64.h"
 #import "NSDate+Formatting.h"
+#import "KingTidesService.h"
 
 @interface PhotoDetailsViewController ()
 
 @property(nonatomic, strong) UIImage *photo;
 @property(nonatomic, strong) CLLocation *location;
-
+@property(nonatomic, strong) KingTidesService *service;
 @end
 
 @implementation PhotoDetailsViewController
@@ -18,39 +19,19 @@
   self = [super initWithNibName:nil bundle:nil];
   if (self) {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(uploadPhoto)];
+    self.service = [[KingTidesService alloc] init];
   }
   return self;
 }
 
 - (void)uploadPhoto {
-  NSData *data = UIImageJPEGRepresentation(self.photo, 1.0);
-  AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-  manager.requestSerializer = [AFJSONRequestSerializer serializer];
-  double latitude, longitude = 0;
-  if(self.location) {
-    latitude = self.location.coordinate.latitude;
-    longitude = self.location.coordinate.longitude;
-  }
-  NSDictionary *parameters = @{
-          @"CreationTime": [[NSDate date] stringByFormattingISO8601Date],
-          @"FirstName": self.nameTextField.text,
-          @"LastName": @"",
-          @"Description":self.descriptionTextView.text,
-          @"Email":self.emailTextField.text,
-          @"Latitude": [NSNumber numberWithDouble:latitude],
-          @"Longitude": [NSNumber numberWithDouble:longitude],
-          @"Photo": [data base64EncodedString]
-  };
-  [manager POST:@"http://witnesskingtides.azurewebsites.net/api/photo/" parameters:parameters success:^(NSURLSessionDataTask *operation, id responseObject) {
-    NSLog(@"JSON: %@", responseObject);
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"UploadSuccess" object:self userInfo:nil];
-  } failure:^(NSURLSessionDataTask *operation, NSError *error) {
-    NSLog(@"Error: %@", error);
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"UploadError" object:self userInfo:nil];
-  }];
+  [self.service uploadPhoto:self.nameTextField.text
+                description:self.descriptionTextView.text
+                      email:self.emailTextField.text
+                   location:self.location
+                      photo:self.imageView.image];
 
   [self dismissViewControllerAnimated:YES completion:nil];
-
 }
 
 - (void)viewDidLoad {
