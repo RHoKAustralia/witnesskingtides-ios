@@ -1,16 +1,11 @@
 #import "PhotoDetailsViewController.h"
-#import "AFHTTPRequestOperation.h"
-#import "AFHTTPRequestOperationManager.h"
-#import "AFHTTPSessionManager.h"
-#import "NSData+Base64.h"
-#import "NSDate+Formatting.h"
-#import "KingTidesService.h"
+#import "ResilientUploader.h"
+#import "Upload.h"
 
 @interface PhotoDetailsViewController ()
 
 @property(nonatomic, strong) UIImage *photo;
 @property(nonatomic, strong) CLLocation *location;
-@property(nonatomic, strong) KingTidesService *service;
 @end
 
 @implementation PhotoDetailsViewController
@@ -19,18 +14,19 @@
   self = [super initWithNibName:nil bundle:nil];
   if (self) {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(uploadPhoto)];
-    self.service = [[KingTidesService alloc] init];
   }
   return self;
 }
 
 - (void)uploadPhoto {
-  [self.service uploadPhoto:self.nameTextField.text
-                description:self.descriptionTextView.text
-                      email:self.emailTextField.text
-                   location:self.location
-                      photo:self.imageView.image];
-
+  ResilientUploader *uploader = [ResilientUploader sharedUploader];
+  Upload *upload = [[Upload alloc] initWithName:self.nameTextField.text
+                                       andEmail:self.emailTextField.text
+                                 andDescription:self.descriptionTextView.text
+                                        andDate:[NSDate date]
+                                    andLocation:self.location
+                                       andImage:self.imageView.image];
+  [uploader save:upload];
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 

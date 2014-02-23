@@ -1,6 +1,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "ResilientUploader.h"
 
 @implementation AppDelegate
 
@@ -14,6 +15,8 @@
 //  self.moodService = [[MoodService alloc] initWithBaseUrl:[NSURL URLWithString:@"http://localhost:3000"]];
 
   [self.window makeKeyAndVisible];
+
+  [[ResilientUploader sharedUploader] queueSavedUploads];
 
   return YES;
 }

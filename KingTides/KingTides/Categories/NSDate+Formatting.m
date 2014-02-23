@@ -22,3 +22,11 @@
 }
 
 @end
+
+@implementation NSString (Formatting)
+
+- (NSDate *)dateByFormattingISO8601Date {
+  return [[NSDateFormatter iso8601DateFormatter] dateFromString:self];
+}
+
+@end
