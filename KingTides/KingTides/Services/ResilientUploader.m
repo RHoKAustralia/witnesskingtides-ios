@@ -28,7 +28,7 @@
     [self.operationQueue setSuspended:client.isReachable];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(queueSavedUploads:)
+                                             selector:@selector(queueSavedUploads)
                                                  name:UIApplicationDidBecomeActiveNotification object:nil];
 
     __weak typeof (self) weakSelf = self;

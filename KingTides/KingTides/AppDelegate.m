@@ -9,14 +9,9 @@
 {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   MainViewController *rootViewController = [[MainViewController alloc] init];
-//  rootViewController.delegate = self;
   self.window.rootViewController = rootViewController;
 
-//  self.moodService = [[MoodService alloc] initWithBaseUrl:[NSURL URLWithString:@"http://localhost:3000"]];
-
   [self.window makeKeyAndVisible];
-
-  [[ResilientUploader sharedUploader] queueSavedUploads];
 
   return YES;
 }
