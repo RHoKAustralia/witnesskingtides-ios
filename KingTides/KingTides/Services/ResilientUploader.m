@@ -27,6 +27,10 @@
     self.operationQueue.maxConcurrentOperationCount = 1;
     [self.operationQueue setSuspended:client.isReachable];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(queueSavedUploads:)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
+
     __weak typeof (self) weakSelf = self;
     [client setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
       if (status == AFNetworkReachabilityStatusNotReachable) {
