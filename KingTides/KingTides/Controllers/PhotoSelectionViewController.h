@@ -1,7 +1,8 @@
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface PhotoSelectionViewController : UIViewController
+@interface PhotoSelectionViewController : GAITrackedViewController
 
 @property (nonatomic, strong)IBOutlet UIImageView *imageView;
 @property (nonatomic, strong)IBOutlet UIImageView *placeHolderImageView;

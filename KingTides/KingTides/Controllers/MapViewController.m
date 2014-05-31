@@ -23,6 +23,7 @@
   self.mapView.delegate = self;
   self.mapView.showsUserLocation = YES;
   self.mapView.userTrackingMode = MKUserTrackingModeNone;
+  self.screenName = @"MapView";
 }
 
 - (void)didReceiveMemoryWarning {

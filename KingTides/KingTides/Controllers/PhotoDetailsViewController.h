@@ -1,8 +1,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "GAITrackedViewController.h"
 
-@interface PhotoDetailsViewController : UIViewController
+@interface PhotoDetailsViewController : GAITrackedViewController
 
 @property (nonatomic, strong)IBOutlet UIImageView *imageView;
 @property (nonatomic, strong)IBOutlet UITextField *nameTextField;

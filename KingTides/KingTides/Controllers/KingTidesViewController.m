@@ -1,5 +1,8 @@
 #import "KingTidesViewController.h"
 #import "KingTideLocationViewController.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
+#import "GAI.h"
 
 @interface KingTidesViewController ()
 
@@ -23,6 +26,8 @@
   self.tableView.opaque = NO;
   self.tableView.backgroundColor = [UIColor clearColor];
   self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"default-background.jpg"]];
+  [[[GAI sharedInstance] defaultTracker] send:[[[GAIDictionaryBuilder createAppView] set:@"TideList"
+                                                    forKey:kGAIScreenName] build]];
   [self.tableView reloadData];
 }
 

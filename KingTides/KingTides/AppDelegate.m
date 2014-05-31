@@ -3,6 +3,7 @@
 #import "MainViewController.h"
 #import "ResilientUploader.h"
 #import "FBTweakShakeWindow.h"
+#import "GAI.h"
 
 @implementation AppDelegate
 
@@ -11,6 +12,18 @@
   self.window = [[FBTweakShakeWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   MainViewController *rootViewController = [[MainViewController alloc] init];
   self.window.rootViewController = rootViewController;
+
+  [GAI sharedInstance].trackUncaughtExceptions = YES;
+
+  // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+  [GAI sharedInstance].dispatchInterval = 20;
+
+  // Optional: set Logger to VERBOSE for debug information.
+  [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+
+  // Initialize tracker. Replace with your tracking ID.
+  [[GAI sharedInstance] trackerWithTrackingId:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"GATrackerId"]];
+
 
   [self.window makeKeyAndVisible];
 

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "GAITrackedViewController.h"
 
-@interface MapViewController : UIViewController
+@interface MapViewController : GAITrackedViewController
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 

@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  self.screenName = @"LandingScreen";
   [[NSNotificationCenter defaultCenter] addObserverForName:kUploadedSuccessfully object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
     WBSuccessNoticeView *successNoticeView = [[WBSuccessNoticeView alloc] initWithView:self.view title:@"Successfully uploaded photo."];
     successNoticeView.alpha = 0.9;

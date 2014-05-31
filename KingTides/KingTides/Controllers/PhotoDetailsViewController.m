@@ -37,6 +37,7 @@
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   self.imageView.image = self.photo;
+  self.screenName = @"PhotoInformation";
 }
 
 - (void)updatePhoto:(UIImage *)image {

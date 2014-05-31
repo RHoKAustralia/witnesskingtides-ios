@@ -18,6 +18,7 @@ PODS:
   - AFNetworking/UIKit (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - GoogleAnalytics-iOS-SDK (3.0.7)
   - Kiwi/ARC (2.2.4)
   - Kiwi/NonARC (2.2.4)
   - Kiwi/XCTest (2.2.4):
@@ -32,6 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - GoogleAnalytics-iOS-SDK
   - Kiwi/XCTest (from `https://github.com/allending/Kiwi`)
   - Mantle
   - NoticeView
@@ -44,6 +46,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
+  GoogleAnalytics-iOS-SDK: bb285d8eef15a682f1b82971becd0d22edd0e53b
   Kiwi: 772d965b130a0768c867363baa4d2639473254e8
   Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
   NoticeView: 357545814931eb92428de54449f405f91c84a1b8

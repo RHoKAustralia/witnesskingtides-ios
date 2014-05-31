@@ -30,6 +30,7 @@
   self.view.backgroundColor = [UIColor colorWithRed:(239.0f/255.0f) green:(239.0f/255.0f) blue:(239.0f/255.0f) alpha:1];
   self.photoDetailsViewController = [[PhotoDetailsViewController alloc] init];
   self.locationManager = [[LocationManager alloc] init];
+  self.screenName = @"PhotoSelection";
   [self.locationManager findLocationWithHighAccuracy:^(CLLocation *location) {
     self.currentLocation = location;
   } failure:^(NSString *error) {

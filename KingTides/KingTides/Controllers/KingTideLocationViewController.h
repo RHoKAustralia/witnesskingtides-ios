@@ -1,7 +1,8 @@
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface KingTideLocationViewController : UIViewController
+@interface KingTideLocationViewController : GAITrackedViewController
 
 @property (nonatomic, strong) IBOutlet UILabel *locationNameLabel;
 @property (nonatomic, strong) IBOutlet UITextView *tideDetailsTextView;

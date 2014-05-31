@@ -7,8 +7,6 @@
 #import "Upload.h"
 #import "FBTweakInline.h"
 
-
-
 @interface KingTidesService()
 @property(nonatomic, strong) AFHTTPSessionManager *manager;
 @property(nonatomic, strong) NSString *endPoint;

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : GAITrackedViewController
 
 - (IBAction)showTakeDialog:(id)sender;
 

@@ -30,6 +30,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+  <key>GATrackerId</key>
+  <string>${GA_KEY}</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

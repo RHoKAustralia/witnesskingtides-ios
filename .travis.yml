@@ -10,7 +10,8 @@ script: xctool -workspace KingTides.xcworkspace -scheme KingTides -configuration
 rvm: 2.0.0
 env:
   global:
-  - 'DEVELOPER_NAME="iPhone Distribution"'
+  - DEVELOPER_NAME="iPhone Distribution"
   - secure: killTE+F7cI5rndEG2+QQ0oUxaP4NcFwqgCBjZaToVMBcZoh8LbtZslPr6jI6dQIJ0LMfp83C0RhZaO6X5PshNmu9dB1MCRVptWcdKY315vBabvjteEB+3xB9KgtmOhWVle+/egbrt75paX9xTGbDxwreRBVG00RaCTHXlfVgbQ=
   - secure: V4CxJGPUbQGTKS6zCe/9SUz8fGfzABkx0uqTIKevwjn2WguIOf04TkOzNya59e4GScDdc8oFYZPMWn6liioqio0wQF+zb9ag29hSFh9FKRgp2a1jwUoP7QGOc4BuZxdv8oQwu1elKvm6HOGAqrIEtAKARrqHZu/4pzGL6Y6H42s=
   - secure: VW95kAziTN3g+jOKmGg7JVZtzphTt/sqo/LCTIZDozcGxAw1UcRzuk9Oo7Jx1GTG6ttbiP+q1LS9jRO9s74ou+QPy0I/lJEoybwvJo+lnli2ypyWAWqglebf572UnUauNXSf3ZXOwofnOv4fvgRPOWPOErjtSCJo2AXG6jbJvqA=
+  - secure: n+NyJSOtVhpNuO0HXhkV0dftUIUyhAVCtDuZi+OihzeC1UMfTd7tJSTT0Ij6TRNrHH1fIbSzz2JUiRgB4RxA8A1cYflK/zQSOc2P+sf9iyd5BkaN6FxM/Qm1xrNISOKFzppo1N4CG5FJS9dPWPl4ILtnrd8ckquln/SanfTvpZI=
