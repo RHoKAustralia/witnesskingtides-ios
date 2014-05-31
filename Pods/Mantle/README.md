@@ -53,7 +53,7 @@ typedef enum : NSUInteger {
     _URL = [NSURL URLWithString:dictionary[@"url"]];
     _HTMLURL = [NSURL URLWithString:dictionary[@"html_url"]];
     _number = dictionary[@"number"];
-    
+
     if ([dictionary[@"state"] isEqualToString:@"open"]) {
         _state = GHIssueStateOpen;
     } else if ([dictionary[@"state"] isEqualToString:@"closed"]) {
@@ -218,15 +218,9 @@ typedef enum : NSUInteger {
 }
 
 + (NSValueTransformer *)stateJSONTransformer {
-    NSDictionary *states = @{
+    return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:@{
         @"open": @(GHIssueStateOpen),
         @"closed": @(GHIssueStateClosed)
-    };
-
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
-        return states[str];
-    } reverseBlock:^(NSNumber *state) {
-        return [states allKeysForObject:state].lastObject;
     }];
 }
 
@@ -266,7 +260,8 @@ it easy to specify how new model data should be integrated.
 
 This is where reversible transformers really come in handy. `+[MTLJSONAdapter
 JSONDictionaryFromModel:]` can transform any model object conforming to
-`<MTLJSONSerializing>` back into a JSON dictionary.
+`<MTLJSONSerializing>` back into a JSON dictionary. `+[MTLJSONAdapter
+JSONArrayForModels:]` is the same but turns an array of model objects into an JSON array of dictionaries.
 
 > If the interface of `GHIssue` changes down the road, existing archives might break.
 
@@ -278,7 +273,7 @@ be invoked if overridden, giving you a convenient hook to upgrade old data.
 
 In order to serialize your model objects from or into JSON, you need to
 implement `<MTLJSONSerializing>` in your `MTLModel` subclass. This allows you to
-use `MTLJSONAdapter` convert your model objects from JSON and back:
+use `MTLJSONAdapter` to convert your model objects from JSON and back:
 
 ```objc
 NSError *error = nil;
@@ -477,6 +472,8 @@ To add Mantle to your application:
 If you would prefer to use [CocoaPods](http://cocoapods.org), there are some
 [Mantle podspecs](https://github.com/CocoaPods/Specs/tree/master/Mantle) that
 have been generously contributed by third parties.
+
+If you’re instead developing Mantle on its own, use the `Mantle.xcworkspace` file.
 
 ## License
 

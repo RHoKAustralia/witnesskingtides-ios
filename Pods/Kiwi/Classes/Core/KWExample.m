@@ -86,9 +86,8 @@
 
 - (id)addMatchVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite {
     if (self.unresolvedVerifier) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"Trying to add another verifier without specifying a matcher for the previous one."
-                                     userInfo:nil];
+        KWFailure *failure = [KWFailure failureWithCallSite:self.unresolvedVerifier.callSite format:@"expected subject not to be nil"];
+        [self reportFailure:failure];
     }
     id<KWVerifying> verifier = [KWMatchVerifier matchVerifierWithExpectationType:anExpectationType callSite:aCallSite matcherFactory:self.matcherFactory reporter:self];
     [self addVerifier:verifier];
@@ -96,7 +95,7 @@
     return verifier;
 }
 
-- (id)addAsyncVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite timeout:(NSInteger)timeout shouldWait:(BOOL)shouldWait {
+- (id)addAsyncVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite timeout:(NSTimeInterval)timeout shouldWait:(BOOL)shouldWait {
   id verifier = [KWAsyncVerifier asyncVerifierWithExpectationType:anExpectationType callSite:aCallSite matcherFactory:self.matcherFactory reporter:self probeTimeout:timeout shouldWait: shouldWait];
   [self addVerifier:verifier];
   return verifier;

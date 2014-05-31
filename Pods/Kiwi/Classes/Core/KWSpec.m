@@ -122,14 +122,18 @@
 
 - (void)example:(KWExample *)example didFailWithFailure:(KWFailure *)failure {
     if ([self respondsToSelector:@selector(recordFailureWithDescription:inFile:atLine:expected:)]) {
-        objc_msgSend(self,
-                     @selector(recordFailureWithDescription:inFile:atLine:expected:),
-                     [[failure exceptionValue] description],
-                     failure.callSite.filename,
-                     failure.callSite.lineNumber,
-                     NO);
+        void (*recordFailure)(id, SEL, NSString *, NSString *, NSUInteger, BOOL) =
+            (void (*)(id, SEL, NSString *, NSString *, NSUInteger, BOOL))objc_msgSend;
+        recordFailure(self,
+                      @selector(recordFailureWithDescription:inFile:atLine:expected:),
+                      [[failure exceptionValue] description],
+                      failure.callSite.filename,
+                      failure.callSite.lineNumber,
+                      NO);
     } else {
-        objc_msgSend(self, @selector(failWithException:), [failure exceptionValue]);
+        void (*failWithException)(id, SEL, NSException *) =
+            (void (*)(id, SEL, NSException *))objc_msgSend;
+        failWithException(self, @selector(failWithException:), [failure exceptionValue]);
     }
 }
 
@@ -149,7 +153,7 @@
     return [[[KWExampleSuiteBuilder sharedExampleSuiteBuilder] currentExample] addMatchVerifierWithExpectationType:anExpectationType callSite:aCallSite];
 }
 
-+ (id)addAsyncVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite timeout:(NSInteger)timeout shouldWait:(BOOL)shouldWait {
++ (id)addAsyncVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite timeout:(NSTimeInterval)timeout shouldWait:(BOOL)shouldWait {
     return [[[KWExampleSuiteBuilder sharedExampleSuiteBuilder] currentExample] addAsyncVerifierWithExpectationType:anExpectationType callSite:aCallSite timeout:timeout shouldWait: shouldWait];
 }
 
