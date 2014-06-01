@@ -16,7 +16,7 @@
 
 - (id)init {
   if (self = [super init]) {
-    self.endPoint = FBTweakValue(@"Serverside", @"Endpoints", @"WKT", @"http://witnesskingtides.azurewebsites.net/api/");
+    self.endPoint = FBTweakValue(@"Serverside", @"Endpoints", @"WKT", @"http://kingtides-api-env-fubbpjhd29.elasticbeanstalk.com");
     self.manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:self.endPoint]];
     self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
   }
@@ -37,7 +37,7 @@
              success:(UploadSuccessBlock)success
              failure:(FailureBlock)failure {
   NSDictionary *JSONDictionary = [MTLJSONAdapter JSONDictionaryFromModel:upload];
-  [self.manager POST:@"photo" parameters:JSONDictionary success:^(NSURLSessionDataTask *operation, id responseObject) {
+  [self.manager POST:@"upload" parameters:JSONDictionary success:^(NSURLSessionDataTask *operation, id responseObject) {
     NSLog(@"JSON: %@", responseObject);
     success();
   } failure:^(NSURLSessionDataTask *operation, NSError *error) {
@@ -47,7 +47,13 @@
 }
 
 - (void)retrieveTideData:(void (^)(NSArray *list))success {
-
+  [self.manager GET:@"tides" parameters:nil success:^(NSURLSessionDataTask *operation, id responseObject) {
+      NSLog(@"JSON: %@", responseObject);
+//      success();
+  } failure:^(NSURLSessionDataTask *operation, NSError *error) {
+      NSLog(@"Error: %@", error);
+//      failure(error);
+  }];
 }
 
 - (BOOL)isReachable {
