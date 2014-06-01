@@ -370,6 +370,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Green Cross Australia";
 				TargetAttributes = {
+					A1C78E191852D058007E748D = {
+						DevelopmentTeam = HR4LVL7TKY;
+					};
 					A1C78E3D1852D058007E748D = {
 						TestTargetID = A1C78E191852D058007E748D;
 					};
@@ -636,10 +639,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KingTides/KingTides-Prefix.pch";
 				INFOPLIST_FILE = "KingTides/KingTides-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/../Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -651,10 +657,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KingTides/KingTides-Prefix.pch";
 				INFOPLIST_FILE = "KingTides/KingTides-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/../Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
