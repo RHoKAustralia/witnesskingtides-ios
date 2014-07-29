@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "TideInfo.h"
 #import "DownloadWorker.h"
-@interface KingTidesViewController : UITableViewController
-@property (nonatomic,strong) NSMutableArray* tideInfoArray;
-@property(nonatomic,strong) DownloadWorker* downloadWorker;
+@interface KingTidesViewController : UITableViewController<UISearchBarDelegate>
 @end

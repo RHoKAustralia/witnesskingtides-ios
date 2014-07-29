@@ -12,7 +12,6 @@
 {
 }
 @property(nonatomic,copy) NSString* tideID;
-//@property(nonatomic,strong) NSDictionary* eventInfo;
 @property(nonatomic,copy) NSString* location;
 @property(nonatomic,copy) NSString* state;
 @property(nonatomic,copy) NSString* description;
