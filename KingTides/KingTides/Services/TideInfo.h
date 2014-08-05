@@ -22,6 +22,10 @@
 @property(nonatomic,copy) NSNumber* longtitude;
 @property(nonatomic,copy) NSString* picURL;//reserve for furture use
 @property(nonatomic,assign) NSNumber* version;
++(NSArray*)parseJSON:(NSArray *)JSONData;
++(NSDictionary*)groupDataByState:(NSArray*)tideInfoArray;
+
+
 @end
 
 

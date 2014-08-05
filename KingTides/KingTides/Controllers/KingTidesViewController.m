@@ -5,19 +5,19 @@
 #import "GAI.h"
 #import "Notifications.h"
 #import "UIImageView+AFNetworking.h"
+#import "TideInfo.h"
+
 #define heightOfSearchBar 40
 #define heightOfCell 20
 
 @interface KingTidesViewController ()
-@property (nonatomic,strong) NSMutableArray* tideInfoArray;
-@property(nonatomic,strong) NSMutableArray* stateArray;
-@property(nonatomic,strong) NSMutableDictionary* tideInfoDivideByState;
-@property(nonatomic,strong) DownloadWorker* downloadWorker;
+@property(nonatomic,strong) NSDictionary* tideInfoDivideByState;
 @property(nonatomic,strong)UISearchBar* searchBar;
 @property(nonatomic,strong) UITableView* tableView;
 @property(nonatomic, strong) NSArray *locations;
+-(void)setupSearchBar;
 
--(BOOL)parseJSONData:(NSArray*)JSONData;
+//-(BOOL)parseJSONData:(NSArray*)JSONData;
 //-(NSArray*)calculateNumbersOfJSON;
 
 @end
@@ -45,19 +45,36 @@
   self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"default-background.jpg"]];
   [[[GAI sharedInstance] defaultTracker] send:[[[GAIDictionaryBuilder createAppView] set:@"TideList"
                                                     forKey:kGAIScreenName] build]];
+  [[KingTidesService sharedService] retrieveTideData:
+   ^(id retrievedData)
+    {
+        if ([retrievedData isKindOfClass:[NSArray class]])
+        {
+            NSArray* recordArray= [TideInfo parseJSON:retrievedData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.tideInfoDivideByState=[TideInfo groupDataByState:recordArray];
+                [[self tableView] reloadData];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onReceivingJSON:) name:kDownloadSuccessfully object:nil];
+            });
+        }
+                 
+    }
+    failure: ^(NSError *error)
+    {
+            
+            
+    }
+    ];
+        
+  
+    [self setupSearchBar];
     
-    self.downloadWorker= [DownloadWorker sharedDownloadWorker];
-    [self.downloadWorker queueDownloadOperation:nil];//retrieve the JSON data
-    self.tideInfoArray= [NSMutableArray array];
     
-    self.tideInfoDivideByState=[NSMutableDictionary dictionary];
-    self.stateArray= [NSMutableArray array];
-    //UISearchBar
-    // set toolbar items
+
+}
+-(void)setupSearchBar
+{
     CGRect rect= [[self view] frame];
-    
     UISearchBar* mySearchBar= [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, heightOfSearchBar)];
     mySearchBar.delegate = self;
     mySearchBar.showsCancelButton = NO;
@@ -70,128 +87,9 @@
     [mySearchBar sizeToFit];
     [self setSearchBar:mySearchBar];
     //[[self view] addSubview: [self searchBar]];
-    
-    
 
-}
--(void)onReceivingJSON:(NSNotification*) note
-{
-    if ([self parseJSONData:[note.userInfo objectForKey:@"downloadJSON"]]) {
-        [[self tableView] reloadData];
-    }
-    
     
 }
--(BOOL)parseJSONData:(NSArray *)JSONData
-{
-    if (JSONData==nil||![JSONData isKindOfClass:[NSArray class]]) {
-        return NO;
-    }
-    
-    for(NSDictionary* item in JSONData)
-    {
-        TideInfo* oneTideInfo= [[TideInfo alloc] init];
-        if(![[item objectForKey:@"id"] isKindOfClass: [NSString class]] ||[item objectForKey:@"id"]==nil)
-            continue;
-        oneTideInfo.tideID=[item objectForKey:@"id"];
-        
-        if(![[item objectForKey:@"event"] isKindOfClass: [NSDictionary class]] ||[item objectForKey:@"event"]==nil)
-            continue;
-        NSDictionary* eventInfo=[item objectForKey:@"event"];
-        
-        
-        if ([eventInfo objectForKey:@"location"]==nil ||![[eventInfo objectForKey:@"location"] isKindOfClass:[NSString class]]) {
-            continue;
-        }
-        oneTideInfo.location=[eventInfo objectForKey:@"location"];
-        
-        if ([eventInfo objectForKey:@"state"]==nil ||![[eventInfo objectForKey:@"state"] isKindOfClass:[NSString class]]) {
-            continue;
-        }
-        oneTideInfo.state=[eventInfo objectForKey:@"state"];
-        
-        
-        if ([eventInfo objectForKey:@"description"]==nil ||![[eventInfo objectForKey:@"description"] isKindOfClass:[NSString class]]) {
-            continue;
-        }
-        oneTideInfo.description=[eventInfo objectForKey:@"description"];
-        
-        if ([eventInfo objectForKey:@"highTideOccurs"]==nil ||![[eventInfo objectForKey:@"highTideOccurs"] isKindOfClass:[NSString class]]) {
-           continue;
-        }
-        oneTideInfo.hightTideOccurs=[eventInfo objectForKey:@"highTideOccurs"];
-        
-        if ([eventInfo objectForKey:@"eventStart"]==nil ||![[eventInfo objectForKey:@"eventStart"] isKindOfClass:[NSString class]]) {
-            continue;
-        }
-        oneTideInfo.eventStarts=[eventInfo objectForKey:@"eventStart"];
-        
-        if ([eventInfo objectForKey:@"eventEnd"]==nil ||![[eventInfo objectForKey:@"eventEnd"] isKindOfClass:[NSString class]]) {
-            continue;
-        }
-        oneTideInfo.eventEnds=[eventInfo objectForKey:@"eventEnd"];
-        
-        if ([eventInfo objectForKey:@"latitude"]==nil ||![[eventInfo objectForKey:@"latitude"] isKindOfClass:[NSNumber class]])
-        {
-            continue;
-        }
-        oneTideInfo.latitude=[eventInfo objectForKey:@"latitude"];
-        
-        if ([eventInfo objectForKey:@"longitude"]==nil ||![[eventInfo objectForKey:@"longitude"] isKindOfClass:[NSNumber class]]) {
-            continue;
-        }
-        oneTideInfo.longtitude=[eventInfo objectForKey:@"longitude"];
-        
-        if ([eventInfo objectForKey:@"__v"]==nil ||![[eventInfo objectForKey:@"__v"] isKindOfClass:[NSNumber class]]) {
-            continue;
-        }
-        oneTideInfo.version= [eventInfo objectForKey:@"__v"];
-        
-        [[self tideInfoArray] addObject:oneTideInfo];
-        
-    }
-    
-    //NSMutableArray* stateArray= [NSMutableArray array];
-    //if ([self.tideInfoArray count]==0) {
-    //    return 0;
-    //}
-    TideInfo* tide0= [[self tideInfoArray] objectAtIndex:0];
-    [self.stateArray addObject:tide0.state];
-    
-    for (int count2=1;count2< [[self tideInfoArray] count];count2++)
-        
-    {
-        TideInfo* tide2= [[self tideInfoArray] objectAtIndex:count2];
-        
-        
-        if (![self.stateArray containsObject:tide2.state] )
-        {
-            [self.stateArray addObject:tide2.state];
-        }
-        
-    }
-    
-    for (NSString* stateNmae in self.stateArray)
-    {
-        NSMutableArray* sectionArray= [NSMutableArray array];
-        //NSInteger countOfRowsInSection=0;
-        for (TideInfo* info in [self tideInfoArray]) {
-            if ([info.state isEqualToString:stateNmae]) {
-                [sectionArray addObject:info];
-                //++countOfRowsInSection;
-            }
-        }
-        [self.tideInfoDivideByState setObject:sectionArray forKey:stateNmae];
-    }
-    
-    
-    
-    
-
-
-    return YES;
-}
-
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
@@ -237,7 +135,8 @@
 {
   static NSString *CellIdentifier = @"Cell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-  if (cell == nil) {
+  if (cell == nil)
+  {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
   }
     cell.backgroundColor = [UIColor clearColor];
@@ -260,13 +159,6 @@
     //cell.detailTextLabel.text=tideInfo;
     return  cell;
 }
-/*
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-  // This will create a "invisible" footer
-  return 40.0f;
-}
- */
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     //NSMutableArray* rowsOfSection=nil;
@@ -321,12 +213,10 @@
 
 {
     
-    //可以设置 显示scopeButtonTitles
+    
     [searchBar setShowsCancelButton:YES animated:YES];
     searchBar.showsScopeBar = NO;
     searchBar.selectedScopeButtonIndex = 0;
-    //searchBar.scopeButtonTitles = @[@"城市搜索", @"全国搜索"];
-    //searchBar.showsScopeBar = YES;
     searchBar.placeholder=@"";
     [searchBar sizeToFit];
     
