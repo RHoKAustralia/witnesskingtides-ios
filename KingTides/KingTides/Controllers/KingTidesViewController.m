@@ -6,9 +6,14 @@
 #import "Notifications.h"
 #import "UIImageView+AFNetworking.h"
 #import "TideInfo.h"
+#import "KingTidesService.h"
+#import "MBProgressHUD.h"
 
-#define heightOfSearchBar 40
-#define heightOfCell 20
+
+#define kHeightOfSearchBar 40
+#define kHeightOfCell 20
+#define kIndicatingWindowShowingTime 2
+
 
 @interface KingTidesViewController ()
 @property(nonatomic,strong) NSDictionary* tideInfoDivideByState;
@@ -61,6 +66,21 @@
     }
     failure: ^(NSError *error)
     {
+        {
+            MBProgressHUD* HUD = [[MBProgressHUD alloc] initWithView:self.view] ;
+            [self.view addSubview:HUD];
+            HUD.labelText = @"Fail! Please try again";
+            HUD.mode = MBProgressHUDModeText;
+            [HUD showAnimated:YES whileExecutingBlock:^{
+                sleep(kIndicatingWindowShowingTime);
+            } completionBlock:^{
+                [HUD removeFromSuperview];
+                //[HUD release];
+                //HUD = nil;
+            }];
+            
+        }
+
             
             
     }
@@ -75,17 +95,17 @@
 -(void)setupSearchBar
 {
     CGRect rect= [[self view] frame];
-    UISearchBar* mySearchBar= [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, heightOfSearchBar)];
-    mySearchBar.delegate = self;
-    mySearchBar.showsCancelButton = NO;
-    mySearchBar.barStyle=UIBarStyleDefault;
-    mySearchBar.placeholder=@"ENTER TAS SA WA NT QLD NSW VIC UNDEFINED";
-    mySearchBar.hidden=NO;
-    mySearchBar.keyboardType=UIKeyboardTypeNamePhonePad;
-    mySearchBar.alpha=0;
+    self.searchBar= [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, kHeightOfSearchBar)];
+    self.searchBar.delegate = self;
+    self.searchBar.showsCancelButton = NO;
+    self.searchBar.barStyle=UIBarStyleDefault;
+    self.searchBar.placeholder=@"ENTER TAS SA WA NT QLD NSW VIC UNDEFINED";
+    self.searchBar.hidden=NO;
+    self.searchBar.keyboardType=UIKeyboardTypeNamePhonePad;
+    self.searchBar.alpha=0;
     //mySearchBar.scopeButtonTitles = @[@"城市搜索", @"全国搜索"];
-    [mySearchBar sizeToFit];
-    [self setSearchBar:mySearchBar];
+    [self.searchBar sizeToFit];
+    //[self setSearchBar:mySearchBar];
     //[[self view] addSubview: [self searchBar]];
 
     
@@ -109,14 +129,13 @@
 }
 
 #pragma mark - Table view data source
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return heightOfCell;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kHeightOfCell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
-    
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -139,24 +158,24 @@
   {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
   }
+    CGRect frame = cell.textLabel.frame;
+    frame.size.height = 20;
+    cell.textLabel.frame = frame;
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.backgroundColor = [UIColor colorWithRed:(68.0f/255.0f) green:(168.0f/255.0f) blue:(218.0f/255.0f) alpha:1];
 
     
     
     NSMutableArray* rowsOfSection=nil;
-    if ([self.searchBar.text isEqualToString:@""]) {
+    if ([self.searchBar.text isEqualToString:@""])
+    {
         rowsOfSection=[self.tideInfoDivideByState objectForKey:@"nsw"];
     }
     else
         rowsOfSection=[self.tideInfoDivideByState objectForKey:self.searchBar.text];
-    
-    
-    //rowsOfSection=[self.tideInfoDivideByState objectForKey:self.searchBar.text];
     TideInfo* info=[rowsOfSection objectAtIndex:indexPath.row];
-    //NSString* tideInfo=[NSString stringWithFormat:@"King tide's description:%@\nhigh tide occur:%@\n start from:%@\n end at%@\n latitude:%f\n longtitude:%f",info.description,info.hightTideOccurs,info.eventStarts,info.eventEnds,[info.latitude floatValue],[info.longtitude floatValue]];
     cell.textLabel.text=info.location;
-    //cell.detailTextLabel.text=tideInfo;
     return  cell;
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -169,23 +188,10 @@
     else
         return [NSString stringWithFormat:@"%@ State",[[self searchBar] text] ];
 }
-
-/*
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-  UIView *view = [[UIView alloc] init];
-  view.backgroundColor = [UIColor clearColor];
-  return view;
-}
- */
- 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
   // This will create a "invisible" footer
-  return heightOfSearchBar;
+  return kHeightOfSearchBar;
 }
- 
-
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -212,8 +218,6 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 
 {
-    
-    
     [searchBar setShowsCancelButton:YES animated:YES];
     searchBar.showsScopeBar = NO;
     searchBar.selectedScopeButtonIndex = 0;
@@ -222,7 +226,7 @@
     
     
 }
-/*
+/* not applicable
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
 
 {
@@ -251,12 +255,6 @@
     [UISearchBar animateWithDuration:0.25 animations:^{
         self.searchBar.alpha=0;
     }];
-    
-    
-    
-    //searchBar.placeholder = @"ENTER TAS SA WA NT QLD NSW VIC UNDEFINED ";
-    //[searchBar setShowsCancelButton:NO animated:YES];
-    //[searchBar sizeToFit];
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
@@ -268,7 +266,8 @@
     [ searchBar resignFirstResponder];
     
     // The above statement will disable "Cancel" button. We need to enable it
-    for (id subview in searchBar.subviews) {
+    for (id subview in searchBar.subviews)
+    {
         if ([subview isKindOfClass:[UIButton class]]) {
             [subview setEnabled:YES];
         }

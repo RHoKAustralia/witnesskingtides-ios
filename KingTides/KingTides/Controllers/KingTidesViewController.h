@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "TideInfo.h"
-#import "DownloadWorker.h"
+
 @interface KingTidesViewController : UITableViewController<UISearchBarDelegate>
 @end
