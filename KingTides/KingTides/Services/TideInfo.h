@@ -7,23 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Mantle/Mantle.h>
 
-@interface TideInfo : NSObject
+@interface TideInfo : MTLModel<MTLJSONSerializing>
 {
 }
-@property(nonatomic,copy) NSString* tideID;
-@property(nonatomic,copy) NSString* location;
-@property(nonatomic,copy) NSString* state;
-@property(nonatomic,copy) NSString* description;
-@property(nonatomic,copy) NSString* hightTideOccurs;
-@property(nonatomic,copy) NSString* eventStarts;
-@property(nonatomic,copy) NSString* eventEnds;
-@property(nonatomic,copy) NSNumber* latitude;
-@property(nonatomic,copy) NSNumber* longtitude;
-@property(nonatomic,copy) NSString* picURL;//reserve for furture use
-@property(nonatomic,assign) NSNumber* version;
-+(NSArray*)parseJSON:(NSArray *)JSONData;
+@property(nonatomic,strong) NSString* tideID;
+@property(nonatomic,strong) NSString* location;
+@property(nonatomic,strong) NSString* state;
+@property(nonatomic,strong) NSString* description;
+@property(nonatomic,strong) NSString* hightTideOccurs;
+@property(nonatomic,strong) NSString* eventStarts;
+@property(nonatomic,strong) NSString* eventEnds;
+@property(nonatomic,strong) NSNumber* latitude;
+@property(nonatomic,strong) NSNumber* longtitude;
+@property(nonatomic,strong) NSString* picURL;//reserve for furture use
+@property(nonatomic,strong) NSNumber* version;
+//+(NSArray*)parseJSON:(NSArray *)JSONData;
 +(NSDictionary*)groupDataByState:(NSArray*)tideInfoArray;
++ (NSDictionary *)JSONKeyPathsByPropertyKey;
 
 
 @end
