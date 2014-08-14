@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.locationNameLabel.text = self.locationName;
+  //self.tideDetailsTextView.text=NSString stringWithFormat:@"The King Tide will occur on "
   self.screenName = [NSString stringWithFormat:@"KingTideLocation: %@", self.locationName];
 }
 

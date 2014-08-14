@@ -11,7 +11,7 @@
 
 
 #define kHeightOfSearchBar 40
-#define kHeightOfCell 20
+#define kHeightOfCell 40
 #define kIndicatingWindowShowingTime 1
 
 
@@ -100,6 +100,10 @@
         
   
     [self setupSearchBar];
+    //hide the fussy cell
+    UIView *v = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.tableView setTableFooterView:v];
+    
     
     
 
@@ -185,8 +189,10 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+
     CGRect frame = cell.textLabel.frame;
     frame.size.height = 20;
+    
     cell.textLabel.frame = frame;
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -214,6 +220,7 @@
     }
     TideInfo* info=[rowsOfSection objectAtIndex:indexPath.row];
     cell.textLabel.text=info.location;
+    tableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     return  cell;
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -245,6 +252,9 @@
     TideInfo* info= [rowsOfSection objectAtIndex:indexPath.row];
     detailViewController.locationName=info.location;
     detailViewController.description=info.description;
+    detailViewController.tideOccurs=info.hightTideOccurs;
+    detailViewController.eventStarts=info.eventStarts;
+    detailViewController.eventEnds=info.eventEnds;
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
