@@ -191,7 +191,7 @@
     }
 
     CGRect frame = cell.textLabel.frame;
-    frame.size.height = 20;
+    //frame.size.height = 20;
     
     cell.textLabel.frame = frame;
     cell.backgroundColor = [UIColor clearColor];
