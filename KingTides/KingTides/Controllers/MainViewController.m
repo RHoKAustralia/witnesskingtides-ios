@@ -26,6 +26,9 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+//    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+//        [self setEdgesForExtendedLayout:UIRectEdgeTop];
+//    }
   self.screenName = @"LandingScreen";
   [[NSNotificationCenter defaultCenter] addObserverForName:kUploadedSuccessfully object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
     WBSuccessNoticeView *successNoticeView = [[WBSuccessNoticeView alloc] initWithView:self.view title:@"Successfully uploaded photo."];
