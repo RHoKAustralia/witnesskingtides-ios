@@ -21,8 +21,7 @@
 @implementation KingTidesService
 
 - (id)init {
-  if (self = [super init])
-  {
+  if (self = [super init]) {
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     self.endPoint = FBTweakValue(@"Serverside", @"Endpoints", @"WKT", @"http://kingtides-api-env-fubbpjhd29.elasticbeanstalk.com");
     NSURLCache *cache = [[NSURLCache alloc] initWithMemoryCapacity:tenM
@@ -32,9 +31,6 @@
     [config setURLCache:cache];
     self.manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:self.endPoint] sessionConfiguration:config];
     self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
-      
-      
-    
   }
   return self;
 }
@@ -55,58 +51,44 @@
 {
   NSDictionary *JSONDictionary = [MTLJSONAdapter JSONDictionaryFromModel:upload];
   [self.manager POST:@"upload" parameters:JSONDictionary
-             success:^(NSURLSessionDataTask *operation, id responseObject)
-            {
-                NSLog(@"JSON: %@", responseObject);
-                
-                success();
-            }
-             failure:^(NSURLSessionDataTask *operation, NSError *error)
-            {
-                NSLog(@"Error: %@", error);
-                failure(error);
-            }
-   ];
+             success:^(NSURLSessionDataTask *operation, id responseObject) {
+                 NSLog(@"JSON: %@", responseObject);
+
+                 success();
+             }
+             failure:^(NSURLSessionDataTask *operation, NSError *error) {
+                 NSLog(@"Error: %@", error);
+                 failure(error);
+             }
+  ];
 }
 
-- (void)retrieveTideData:(void (^)(id retrievedData))success failure: (void (^)(NSError *error))failure
-{
-    
+- (void)retrieveTideData:(void (^)(id retrievedData))success failure:(void (^)(NSError *error))failure {
+
   [self.manager GET:@"tides" parameters:nil
-            success:^(NSURLSessionDataTask *operation, id responseObject)
-            {
-                NSLog(@"suceessfully downloaded JSON data: %@", responseObject);
-                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)operation.response;
-                if (httpResponse.statusCode == statusCode_sucess)
-                {
-                    
-                    if (responseObject!=nil)
-                    {
-                        success(responseObject);
-                    }
+            success:^(NSURLSessionDataTask *operation, id responseObject) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) operation.response;
+                if (httpResponse.statusCode == statusCode_sucess) {
+                  if (responseObject != nil) {
+                    success(responseObject);
+                  }
                 }
             }
-            failure:^(NSURLSessionDataTask *operation, NSError *error)
-            {
-                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)operation.response;
+            failure:^(NSURLSessionDataTask *operation, NSError *error) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) operation.response;
                 NSLog(@"Error: %@", [error localizedDescription]);
-                NSLog(@"status code returned is %ld",(long)httpResponse.statusCode);
+                NSLog(@"status code returned is %ld", (long) httpResponse.statusCode);
                 failure(error);
-                
-                
             }
-   ];
-    
-    
+  ];
+
 }
 
-- (BOOL)isReachable
-{
+- (BOOL)isReachable {
   return self.manager.reachabilityManager.isReachable;
 }
 
-- (void)setReachabilityStatusChangeBlock:(void (^)(AFNetworkReachabilityStatus status))block
-{
+- (void)setReachabilityStatusChangeBlock:(void (^)(AFNetworkReachabilityStatus status))block {
   [self.manager.reachabilityManager setReachabilityStatusChangeBlock:block];
 }
 
