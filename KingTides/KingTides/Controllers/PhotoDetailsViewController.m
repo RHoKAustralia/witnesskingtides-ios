@@ -27,6 +27,8 @@
                                     andLocation:self.location
                                        andImage:self.imageView.image];
   [uploader save:upload];
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Photo upload" message:@"Once your photo has finished uploading, you will be able to view it on the Witness King Tides website: http://www.witnesskingtides.org" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+  [alertView show];
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
