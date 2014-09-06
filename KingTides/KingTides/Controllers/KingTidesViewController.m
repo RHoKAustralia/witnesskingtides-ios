@@ -15,6 +15,7 @@
 @property(nonatomic,strong) NSArray* locations;
 @property(nonatomic,strong) UITableView* tableView;
 @property(nonatomic,strong) UISegmentedControl*stateFilter;
+@property(nonatomic,strong) UIActivityIndicatorView *loading;
 -(void)showIndication:(UIView*) view message:(NSString*) info duration:(unsigned int) sleepTime;
 @end
 
@@ -55,15 +56,21 @@
   self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"default-background.jpg"]];
   [[[GAI sharedInstance] defaultTracker] send:[[[GAIDictionaryBuilder createAppView] set:@"TideList"
                                                     forKey:kGAIScreenName] build]];
+  self.loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+  self.loading.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+  [self.view addSubview:self.loading];
+  [self.loading startAnimating];
   [[KingTidesService sharedService] retrieveTideData:
                   ^(NSArray *list) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self.tideInfoDivideByState = [TideInfo groupDataByState:[NSArray arrayWithArray:list]];
                         self.locations = self.tideInfoDivideByState[self.selectedState];
                         [[self tableView] reloadData];
+                        [self.loading stopAnimating];
                     });
                   }
                   failure:^(NSError *error) {
+                    [self.loading stopAnimating];
                     [self showIndication:self.view message:@"Failed to retrieve current tides. Please try again another time." duration:kIndicatingWindowShowingTime];
                   }];
 
