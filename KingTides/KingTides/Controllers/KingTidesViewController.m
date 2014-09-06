@@ -31,7 +31,7 @@
                forControlEvents:UIControlEventValueChanged];
     self.stateFilter.selectedSegmentIndex = kDefaultSelectedState;
     self.navigationItem.titleView = self.stateFilter;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
   }
   return self;
 }
