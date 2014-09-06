@@ -6,6 +6,7 @@
 #import "NSData+Base64.h"
 #import "Upload.h"
 #import "FBTweakInline.h"
+#import "TideInfo.h"
 
 
 #define statusCode_sucess 200
@@ -63,14 +64,22 @@
   ];
 }
 
-- (void)retrieveTideData:(void (^)(id retrievedData))success failure:(void (^)(NSError *error))failure {
+- (void)retrieveTideData:(void (^)(NSArray *list))success failure:(void (^)(NSError *error))failure {
 
   [self.manager GET:@"tides" parameters:nil
             success:^(NSURLSessionDataTask *operation, id responseObject) {
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) operation.response;
                 if (httpResponse.statusCode == statusCode_sucess) {
-                  if (responseObject != nil) {
-                    success(responseObject);
+                  if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                      NSMutableArray *recordArray = [NSMutableArray array];
+                      for (NSDictionary *dict in responseObject) {
+                        TideInfo *model = [MTLJSONAdapter modelOfClass:[TideInfo class]
+                                                    fromJSONDictionary:dict
+                                                                 error:nil];
+                        [recordArray addObject:model];
+                      }
+
+                    success(recordArray);
                   }
                 }
             }

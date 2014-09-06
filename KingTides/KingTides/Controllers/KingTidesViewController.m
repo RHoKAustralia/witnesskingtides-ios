@@ -6,16 +6,16 @@
 #import "KingTidesService.h"
 #import "MBProgressHUD.h"
 
-#define kHeightOfSearchBar 40
 #define kHeightOfCell 40
 #define kIndicatingWindowShowingTime 1
+#define kDefaultSelectedState 0;
 
 @interface KingTidesViewController ()
 @property(nonatomic,strong) NSDictionary* tideInfoDivideByState;
-@property(nonatomic,strong) UISearchBar* searchBar;
+@property(nonatomic,strong) NSArray* locations;
 @property(nonatomic,strong) UITableView* tableView;
+@property(nonatomic,strong) UISegmentedControl*stateFilter;
 -(void)showIndication:(UIView*) view message:(NSString*) info duration:(unsigned int) sleepTime;
--(void)setupSearchBar;
 @end
 
 @implementation KingTidesViewController
@@ -23,8 +23,14 @@
 - (id)initWithStyle:(UITableViewStyle)style {
   self = [super initWithStyle:style];
   if (self) {
+    self.stateFilter = [[UISegmentedControl alloc] initWithItems:@[@"QLD", @"NSW", @"VIC", @"TAS", @"WA", @"SA", @"NT"]];
+    [self.stateFilter sizeToFit];
+    [self.stateFilter addTarget:self
+                         action:@selector(stateChanged:)
+               forControlEvents:UIControlEventValueChanged];
+    self.stateFilter.selectedSegmentIndex = kDefaultSelectedState;
+    self.navigationItem.titleView = self.stateFilter;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Search" style:UIBarButtonItemStylePlain target:self action:@selector(search)];
   }
   return self;
 }
@@ -50,43 +56,20 @@
   [[[GAI sharedInstance] defaultTracker] send:[[[GAIDictionaryBuilder createAppView] set:@"TideList"
                                                     forKey:kGAIScreenName] build]];
   [[KingTidesService sharedService] retrieveTideData:
-                  ^(id retrievedData) {
-                      if ([retrievedData isKindOfClass:[NSArray class]]) {
-                        NSMutableArray *recordArray = [NSMutableArray array];
-                        for (NSDictionary *dict in retrievedData) {
-                          TideInfo *model = [MTLJSONAdapter modelOfClass:[TideInfo class]
-                                                      fromJSONDictionary:dict
-                                                                   error:nil];
-                          [recordArray addObject:model];
-                        }
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            self.tideInfoDivideByState = [TideInfo groupDataByState:[NSArray arrayWithArray:recordArray]];
-                            [[self tableView] reloadData];
-                        });
-                      }
+                  ^(NSArray *list) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.tideInfoDivideByState = [TideInfo groupDataByState:[NSArray arrayWithArray:list]];
+                        self.locations = self.tideInfoDivideByState[self.selectedState];
+                        [[self tableView] reloadData];
+                    });
                   }
                   failure:^(NSError *error) {
-                    [self showIndication:self.view message:@"Fail! Please try again" duration:kIndicatingWindowShowingTime];
+                    [self showIndication:self.view message:@"Failed to retrieve current tides. Please try again another time." duration:kIndicatingWindowShowingTime];
                   }];
 
-  [self setupSearchBar];
   //hide the fussy cell
   UIView *v = [[UIView alloc] initWithFrame:CGRectZero];
   [self.tableView setTableFooterView:v];
-}
-
-- (void)setupSearchBar {
-  CGRect rect = [[self view] frame];
-  self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, kHeightOfSearchBar)];
-  self.searchBar.delegate = self;
-  self.searchBar.showsCancelButton = NO;
-  self.searchBar.barStyle = UIBarStyleDefault;
-  self.searchBar.placeholder = @"TAS SA WA NT QLD NSW VIC";
-  self.searchBar.hidden = NO;
-  self.searchBar.keyboardType = UIKeyboardTypeNamePhonePad;
-  self.searchBar.alpha = 0;
-  self.searchBar.opaque = YES;
-  [self.searchBar sizeToFit];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,14 +78,6 @@
 
 - (void)dismissView {
   [self dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void)search {
-  [[self view] addSubview:self.searchBar];
-  [UISearchBar animateWithDuration:0.25 animations:^{
-      self.searchBar.alpha = 1;
-      self.searchBar.opaque = NO;
-  }];
 }
 
 #pragma mark - Table view data source
@@ -115,24 +90,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  NSArray *stateArray = @[@"nsw", @"NSW", @"vic", @"VIC", @"QLD", @"qld", @"nt", @"NT", @"wa", @"WA", @"SA", @"sa", @"tas", @"TAS"];
-
-  NSMutableArray *rowsOfSection = nil;
-  if ([self.searchBar.text isEqualToString:@""]) {
-    rowsOfSection = (self.tideInfoDivideByState)[@"nsw"];
-  }
-  else {
-    if ([stateArray containsObject:self.searchBar.text]) {
-      NSString *searchString = [self.searchBar.text lowercaseString];
-      rowsOfSection = (self.tideInfoDivideByState)[searchString];
-    }
-    else {
-      [self showIndication:self.view message:@"input error" duration:kIndicatingWindowShowingTime];
-      return 0;
-    }
-  }
-
-  return [rowsOfSection count];
+  return [self.locations count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -148,51 +106,17 @@
   cell.backgroundColor = [UIColor clearColor];
   cell.textLabel.textColor = [UIColor whiteColor];
   cell.textLabel.backgroundColor = [UIColor colorWithRed:(68.0f / 255.0f) green:(168.0f / 255.0f) blue:(218.0f / 255.0f) alpha:1];
-  NSMutableArray *rowsOfSection = nil;
-  if ([self.searchBar.text isEqualToString:@""]) {
-    rowsOfSection = (self.tideInfoDivideByState)[@"nsw"];
-  }
-  else {
-    NSArray *stateArray = @[@"nsw", @"NSW", @"vic", @"VIC", @"QLD", @"qld", @"nt", @"NT", @"wa", @"WA", @"SA", @"sa", @"tas", @"TAS"];
-    if ([stateArray containsObject:[self.searchBar.text lowercaseString]]) {
-      rowsOfSection = (self.tideInfoDivideByState)[[self.searchBar.text lowercaseString]];
-    }
-    else {
-      [self showIndication:self.view message:@"input error" duration:kIndicatingWindowShowingTime];
-      return nil;
-    }
-
-
-  }
-  TideInfo *info = rowsOfSection[indexPath.row];
+  TideInfo *info = self.locations[indexPath.row];
   cell.textLabel.text = info.location;
   tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
   return cell;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-  if ([self.searchBar.text isEqualToString:@""]) {
-    return @"NSW State";
-  }
-  else
-    return [NSString stringWithFormat:@"%@ State", [[[self searchBar] text] uppercaseString]];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-  return kHeightOfSearchBar;
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   KingTideLocationViewController *detailViewController = [[KingTideLocationViewController alloc] init];
-  NSMutableArray *rowsOfSection = nil;
-  if ([self.searchBar.text isEqualToString:@""]) {
-    rowsOfSection = (self.tideInfoDivideByState)[@"nsw"];
-  }
-  else
-    rowsOfSection = (self.tideInfoDivideByState)[[self.searchBar.text lowercaseString]];
-  TideInfo *info = rowsOfSection[(NSUInteger) indexPath.row];
+  TideInfo *info = self.locations[indexPath.row];
   detailViewController.locationName = info.location;
   detailViewController.description = info.description;
   detailViewController.tideOccurs = info.hightTideOccurs;
@@ -201,42 +125,14 @@
   [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
-#pragma UISearchBarDelegate
 
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-  [searchBar setShowsCancelButton:YES animated:YES];
-  searchBar.showsScopeBar = NO;
-  searchBar.selectedScopeButtonIndex = 0;
-  searchBar.placeholder = @"";
-  [searchBar sizeToFit];
+- (void)stateChanged:(id)stateChanged {
+  self.locations = self.tideInfoDivideByState[self.selectedState];
+  [self.tableView reloadData];
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-  [searchBar resignFirstResponder];
-  for (id subview in searchBar.subviews) {
-    if ([subview isKindOfClass:[UIButton class]]) {
-      [subview setEnabled:YES];
-    }
-  }
-
-  [UISearchBar animateWithDuration:0.25 animations:^{
-      self.searchBar.alpha = 0;
-      self.searchBar.opaque = NO;
-  }];
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-  [UISearchBar animateWithDuration:0.25 animations:^{
-      self.searchBar.alpha = 0;
-      self.searchBar.opaque = YES;
-  }];
-  [[self tableView] reloadData];
-  [searchBar resignFirstResponder];
-  for (id subview in searchBar.subviews) {
-    if ([subview isKindOfClass:[UIButton class]]) {
-      [subview setEnabled:YES];
-    }
-  }
+- (NSString *)selectedState {
+  return [[self.stateFilter titleForSegmentAtIndex:self.stateFilter.selectedSegmentIndex] lowercaseString];
 }
 
 @end

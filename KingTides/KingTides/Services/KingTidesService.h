@@ -13,8 +13,7 @@ typedef void (^FailureBlock)(NSError *error);
 
 - (void)uploadPhoto:(Upload *)upload success:(UploadSuccessBlock)success failure:(FailureBlock)failure;
 
-//- (void)retrieveTideData:(void (^)(NSArray *list))success failure: (FailureBlock)failure;
-- (void)retrieveTideData:(void (^)(id retrievedData))success failure: (void (^)(NSError *error))failure;
+- (void)retrieveTideData:(void (^)(NSArray *list))success failure: (void (^)(NSError *error))failure;
 - (BOOL)isReachable;
 
 - (void)setReachabilityStatusChangeBlock:(void (^)(AFNetworkReachabilityStatus status))block;
