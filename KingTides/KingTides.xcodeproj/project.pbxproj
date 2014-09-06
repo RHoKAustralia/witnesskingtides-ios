@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		095C683A197FAB5F00CBDDA7 /* TideInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 095C6839197FAB5F00CBDDA7 /* TideInfo.m */; };
 		1B09B32F07FA468492CDCDF7 /* libPods-KingTidesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275F62F30E5446AF947144A0 /* libPods-KingTidesTests.a */; };
-		2DC180043D587F784F8B1A1C /* KingTidesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18A5E77B0EA614F919963 /* KingTidesService.m */; };
-		2DC18084ECCE63BEEE83D587 /* KingTidesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18A5E77B0EA614F919963 /* KingTidesService.m */; };
-		2DC18086C82C315073F3BE86 /* Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC182AAD8FB51AD321FD917 /* Upload.m */; };
-		2DC182EC8347C62B6DACFF98 /* ResilientUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18025C4037A9A5198B630 /* ResilientUploader.m */; };
-		2DC18546DA95FFA0FE68A14E /* Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC182AAD8FB51AD321FD917 /* Upload.m */; };
-		2DC18820FD08401480460DCF /* ResilientUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18025C4037A9A5198B630 /* ResilientUploader.m */; };
-		2DC1892BC3EFEB563D156886 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18D0EC368F449AED48EE0 /* DataStore.m */; };
-		2DC18A8BACE257D4B8F0005D /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18D0EC368F449AED48EE0 /* DataStore.m */; };
-		2DC18BAEBC92011671A8C8F0 /* UploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18D5679C600D7F43D62C2 /* UploadOperation.m */; };
+		2DC1800171D5C879C0653B08 /* UploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18955534355700B266125 /* UploadOperation.m */; };
+		2DC184F0B6C9617E215794A7 /* UploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18955534355700B266125 /* UploadOperation.m */; };
+		2DC186EFF9E306F67097D20F /* ResilientUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC185ECF888FE96CF81376B /* ResilientUploader.m */; };
+		2DC1898B83DED436ECF952FA /* Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC182D07BC97BB41E8544A4 /* Upload.m */; };
+		2DC189AEFD768F8E3FF8F71D /* Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC182D07BC97BB41E8544A4 /* Upload.m */; };
+		2DC18B37043B66B94E3A522D /* ResilientUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC185ECF888FE96CF81376B /* ResilientUploader.m */; };
+		2DC18B57BBF3A003D1E78B68 /* TideInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18771A773F30315E6EC60 /* TideInfo.m */; };
+		2DC18BB0C2B0E15E46C6AC7F /* KingTidesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1801C795EEDF27976CE99 /* KingTidesService.m */; };
 		2DC18D303FAE81E5AD010009 /* UIImage+FixRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18473F8D9E0DABAACF7AD /* UIImage+FixRotation.m */; };
-		2DC18ED02817DA7648D9D419 /* UploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18D5679C600D7F43D62C2 /* UploadOperation.m */; };
+		2DC18EF33375825B29A613A6 /* KingTidesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1801C795EEDF27976CE99 /* KingTidesService.m */; };
 		8C562782518E4AF7A4E7632C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9122C4D4E5D4BBC96BA43AA /* libPods.a */; };
 		A1C78E1E1852D058007E748D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C78E1D1852D058007E748D /* Foundation.framework */; };
 		A1C78E201852D058007E748D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C78E1F1852D058007E748D /* CoreGraphics.framework */; };
@@ -68,23 +66,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		095C6838197FAB5F00CBDDA7 /* TideInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TideInfo.h; path = KingTides/Services/TideInfo.h; sourceTree = SOURCE_ROOT; };
-		095C6839197FAB5F00CBDDA7 /* TideInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TideInfo.m; path = KingTides/Services/TideInfo.m; sourceTree = SOURCE_ROOT; };
 		0FDB6D2BF9F648068EEA3B25 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		275F62F30E5446AF947144A0 /* libPods-KingTidesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KingTidesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DC18025C4037A9A5198B630 /* ResilientUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResilientUploader.m; path = Services/ResilientUploader.m; sourceTree = "<group>"; };
+		2DC1801C795EEDF27976CE99 /* KingTidesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KingTidesService.m; path = Services/KingTidesService.m; sourceTree = "<group>"; };
 		2DC1803014A94FD89B2B549D /* UIImage+FixRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FixRotation.h"; sourceTree = "<group>"; };
-		2DC180A910CBF1158381E140 /* UploadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadOperation.h; path = Services/UploadOperation.h; sourceTree = "<group>"; };
-		2DC182AAD8FB51AD321FD917 /* Upload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Upload.m; path = Models/Upload.m; sourceTree = "<group>"; };
-		2DC182DC4ECE13B9E480C8BF /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataStore.h; path = Models/DataStore.h; sourceTree = "<group>"; };
+		2DC182D07BC97BB41E8544A4 /* Upload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Upload.m; path = Models/Upload.m; sourceTree = "<group>"; };
+		2DC183482C93205779479EA4 /* TideInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TideInfo.h; path = Models/TideInfo.h; sourceTree = "<group>"; };
 		2DC183A29121BD26EBB49AA5 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
-		2DC183B32D082F337564C64C /* KingTidesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KingTidesService.h; path = Services/KingTidesService.h; sourceTree = "<group>"; };
 		2DC18473F8D9E0DABAACF7AD /* UIImage+FixRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FixRotation.m"; sourceTree = "<group>"; };
-		2DC1857406D15A17F7E8381E /* Upload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Upload.h; path = Models/Upload.h; sourceTree = "<group>"; };
-		2DC18A5E77B0EA614F919963 /* KingTidesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KingTidesService.m; path = Services/KingTidesService.m; sourceTree = "<group>"; };
-		2DC18B6ED14533AEF844726D /* ResilientUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResilientUploader.h; path = Services/ResilientUploader.h; sourceTree = "<group>"; };
-		2DC18D0EC368F449AED48EE0 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataStore.m; path = Models/DataStore.m; sourceTree = "<group>"; };
-		2DC18D5679C600D7F43D62C2 /* UploadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadOperation.m; path = Services/UploadOperation.m; sourceTree = "<group>"; };
+		2DC184B7CE2CE3A6343DD782 /* ResilientUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResilientUploader.h; path = Services/ResilientUploader.h; sourceTree = "<group>"; };
+		2DC185ECF888FE96CF81376B /* ResilientUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResilientUploader.m; path = Services/ResilientUploader.m; sourceTree = "<group>"; };
+		2DC186D64ADA57451338369B /* KingTidesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KingTidesService.h; path = Services/KingTidesService.h; sourceTree = "<group>"; };
+		2DC18771A773F30315E6EC60 /* TideInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TideInfo.m; path = Models/TideInfo.m; sourceTree = "<group>"; };
+		2DC18955534355700B266125 /* UploadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadOperation.m; path = Services/UploadOperation.m; sourceTree = "<group>"; };
+		2DC18BFB162DF0FCE61B6F68 /* UploadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadOperation.h; path = Services/UploadOperation.h; sourceTree = "<group>"; };
+		2DC18C5FACDC5832856A5B99 /* Upload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Upload.h; path = Models/Upload.h; sourceTree = "<group>"; };
 		7316DA8D418A488C8C7A37E9 /* Pods-KingTidesTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KingTidesTests.xcconfig"; path = "../Pods/Pods-KingTidesTests.xcconfig"; sourceTree = "<group>"; };
 		A1C78E1A1852D058007E748D /* KingTides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KingTides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1C78E1D1852D058007E748D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -177,6 +173,17 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		2DC18EC873D5AAD1275F3D68 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2DC183482C93205779479EA4 /* TideInfo.h */,
+				2DC18771A773F30315E6EC60 /* TideInfo.m */,
+				2DC18C5FACDC5832856A5B99 /* Upload.h */,
+				2DC182D07BC97BB41E8544A4 /* Upload.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		A1C78E111852D058007E748D = {
 			isa = PBXGroup;
 			children = (
@@ -227,19 +234,8 @@
 				A1C78E381852D058007E748D /* Images.xcassets */,
 				A1C78E241852D058007E748D /* Supporting Files */,
 				2DC181CB2249AA67FBDDEA84 /* Categories */,
-				2DC18A5E77B0EA614F919963 /* KingTidesService.m */,
-				2DC183B32D082F337564C64C /* KingTidesService.h */,
-				095C6838197FAB5F00CBDDA7 /* TideInfo.h */,
-				095C6839197FAB5F00CBDDA7 /* TideInfo.m */,
-				2DC18B6ED14533AEF844726D /* ResilientUploader.h */,
-				2DC18025C4037A9A5198B630 /* ResilientUploader.m */,
-				2DC180A910CBF1158381E140 /* UploadOperation.h */,
-				2DC18D5679C600D7F43D62C2 /* UploadOperation.m */,
-				2DC182AAD8FB51AD321FD917 /* Upload.m */,
-				2DC1857406D15A17F7E8381E /* Upload.h */,
-				2DC182DC4ECE13B9E480C8BF /* DataStore.h */,
-				2DC18D0EC368F449AED48EE0 /* DataStore.m */,
 				2DC183A29121BD26EBB49AA5 /* Notifications.h */,
+				2DC18EC873D5AAD1275F3D68 /* Models */,
 			);
 			path = KingTides;
 			sourceTree = "<group>";
@@ -308,6 +304,12 @@
 		A1C78E581852D95E007E748D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2DC186D64ADA57451338369B /* KingTidesService.h */,
+				2DC1801C795EEDF27976CE99 /* KingTidesService.m */,
+				2DC184B7CE2CE3A6343DD782 /* ResilientUploader.h */,
+				2DC185ECF888FE96CF81376B /* ResilientUploader.m */,
+				2DC18BFB162DF0FCE61B6F68 /* UploadOperation.h */,
+				2DC18955534355700B266125 /* UploadOperation.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -512,13 +514,12 @@
 				A1C78E2A1852D058007E748D /* main.m in Sources */,
 				2DC18D303FAE81E5AD010009 /* UIImage+FixRotation.m in Sources */,
 				A1C78E911853BC2B007E748D /* KingTideLocationViewController.m in Sources */,
-				095C683A197FAB5F00CBDDA7 /* TideInfo.m in Sources */,
 				A1C78E651852E9AB007E748D /* PhotoDetailsViewController.m in Sources */,
-				2DC18084ECCE63BEEE83D587 /* KingTidesService.m in Sources */,
-				2DC182EC8347C62B6DACFF98 /* ResilientUploader.m in Sources */,
-				2DC18BAEBC92011671A8C8F0 /* UploadOperation.m in Sources */,
-				2DC18086C82C315073F3BE86 /* Upload.m in Sources */,
-				2DC18A8BACE257D4B8F0005D /* DataStore.m in Sources */,
+				2DC18EF33375825B29A613A6 /* KingTidesService.m in Sources */,
+				2DC186EFF9E306F67097D20F /* ResilientUploader.m in Sources */,
+				2DC1800171D5C879C0653B08 /* UploadOperation.m in Sources */,
+				2DC18B57BBF3A003D1E78B68 /* TideInfo.m in Sources */,
+				2DC189AEFD768F8E3FF8F71D /* Upload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,11 +528,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1C78E4C1852D058007E748D /* KingTidesTests.m in Sources */,
-				2DC180043D587F784F8B1A1C /* KingTidesService.m in Sources */,
-				2DC18820FD08401480460DCF /* ResilientUploader.m in Sources */,
-				2DC18ED02817DA7648D9D419 /* UploadOperation.m in Sources */,
-				2DC18546DA95FFA0FE68A14E /* Upload.m in Sources */,
-				2DC1892BC3EFEB563D156886 /* DataStore.m in Sources */,
+				2DC18BB0C2B0E15E46C6AC7F /* KingTidesService.m in Sources */,
+				2DC18B37043B66B94E3A522D /* ResilientUploader.m in Sources */,
+				2DC184F0B6C9617E215794A7 /* UploadOperation.m in Sources */,
+				2DC1898B83DED436ECF952FA /* Upload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

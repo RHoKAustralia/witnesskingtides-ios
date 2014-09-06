@@ -2,7 +2,6 @@
 #import "Upload.h"
 #import "NSValueTransformer+MTLPredefinedTransformerAdditions.h"
 #import "NSDate+Formatting.h"
-#import "DataStore.h"
 #import "MTLValueTransformer.h"
 #import "NSData+Base64.h"
 
@@ -80,7 +79,7 @@ static NSString *const kArchiveKey = @"upload";
 
 + (NSString *)uploadDir {
   NSError *error;
-  NSString *uploadDir = [[DataStore getPrivateDocsDir] stringByAppendingPathComponent:[NSString stringWithFormat:@"upload"]];
+  NSString *uploadDir = [[self getPrivateDocsDir] stringByAppendingPathComponent:[NSString stringWithFormat:@"upload"]];
   [[NSFileManager defaultManager] createDirectoryAtPath:uploadDir withIntermediateDirectories:YES attributes:nil error:&error];
   return uploadDir;
 }
@@ -103,6 +102,17 @@ static NSString *const kArchiveKey = @"upload";
     }
   }
   return incidentsToUpload;
+}
+
++ (NSString *)getPrivateDocsDir {
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+  NSString *documentsDirectory = [paths objectAtIndex:0];
+  documentsDirectory = [documentsDirectory stringByAppendingPathComponent:@"Private Documents"];
+
+  NSError *error;
+  [[NSFileManager defaultManager] createDirectoryAtPath:documentsDirectory withIntermediateDirectories:YES attributes:nil error:&error];
+
+  return documentsDirectory;
 }
 
 @end
