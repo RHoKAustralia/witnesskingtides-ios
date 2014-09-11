@@ -1,5 +1,6 @@
 # Xcode
 build/*
+DerivedData/*
 !default.xcworkspace
 !project.xcworkspace
 KingTides/KingTides.xcodeproj/project.xcworkspace/xcuserdata/
