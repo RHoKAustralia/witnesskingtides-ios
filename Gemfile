@@ -2,5 +2,5 @@ source 'http://rubygems.org'
 
 gem 'rake'
 # gem 'xcoder'
-gem 'cocoapods'
+gem 'cocoapods', '0.34.2'
 # gem 'plist'
