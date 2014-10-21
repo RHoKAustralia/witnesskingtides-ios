@@ -10,29 +10,29 @@
 	<string>KingTides</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>10B05B33-5EF3-414E-AB9E-7C92ECC51C92</key>
+		<key>3EA02DEF800F09399BBD06C0B239053C566D6E49</key>
 		<string>ssh://github.com/rhok-melbourne/witnesskingtides-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>KingTides.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>10B05B33-5EF3-414E-AB9E-7C92ECC51C92</key>
+		<key>3EA02DEF800F09399BBD06C0B239053C566D6E49</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/rhok-melbourne/witnesskingtides-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>10B05B33-5EF3-414E-AB9E-7C92ECC51C92</string>
+	<string>3EA02DEF800F09399BBD06C0B239053C566D6E49</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>10B05B33-5EF3-414E-AB9E-7C92ECC51C92</string>
+			<string>3EA02DEF800F09399BBD06C0B239053C566D6E49</string>
 			<key>IDESourceControlWCCName</key>
 			<string>witnesskingtides-ios</string>
 		</dict>

@@ -19,11 +19,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - GoogleAnalytics-iOS-SDK (3.0.7)
-  - Kiwi/ARC (2.2.4)
-  - Kiwi/NonARC (2.2.4)
-  - Kiwi/XCTest (2.2.4):
-    - Kiwi/ARC
-    - Kiwi/NonARC
+  - Kiwi (2.3.0)
   - Mantle (1.5):
     - Mantle/extobjc
   - Mantle/extobjc (1.5)
@@ -35,21 +31,17 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - GoogleAnalytics-iOS-SDK
-  - Kiwi/XCTest (from `https://github.com/allending/Kiwi`)
+  - Kiwi
   - Mantle
   - MBProgressHUD (~> 0.8)
   - NoticeView
   - TestFlightSDK
   - Tweaks
 
-EXTERNAL SOURCES:
-  Kiwi:
-    :git: https://github.com/allending/Kiwi
-
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   GoogleAnalytics-iOS-SDK: bb285d8eef15a682f1b82971becd0d22edd0e53b
-  Kiwi: 772d965b130a0768c867363baa4d2639473254e8
+  Kiwi: 54bece5b35564d9b8e03c608d926f1a22fcfc589
   Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   NoticeView: 357545814931eb92428de54449f405f91c84a1b8
