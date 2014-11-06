@@ -36,7 +36,6 @@
   } failure:^(NSString *error) {
     NSLog(@"failed to get location: %@", error);
   }];
-//  self.detailSelectionController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {

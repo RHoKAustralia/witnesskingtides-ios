@@ -19,7 +19,7 @@ static NSString *const kArchiveKey = @"upload";
     self.createdDate = date;
     self.email = email;
     self.lastName = @"";
-    self.description = description;
+    self.uploadDescription = description;
 
     double latitude = 0, longitude = 0;
     if(location) {
@@ -42,7 +42,7 @@ static NSString *const kArchiveKey = @"upload";
           @"createdDate" : @"CreationTime",
           @"firstName" : @"FirstName",
           @"lastName" : @"LastName",
-          @"description" : @"Description",
+          @"uploadDescription" : @"Description",
           @"email" : @"Email",
           @"latitude" : @"Latitude",
           @"longitude" : @"Longitude",

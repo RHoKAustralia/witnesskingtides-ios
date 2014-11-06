@@ -24,14 +24,16 @@
 	<string>1.0.${TRAVIS_BUILD_NUMBER}</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your current location will be used to tag tide photos recorded.</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>Main_iPad</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
-  <key>GATrackerId</key>
-  <string>${GA_KEY}</string>
+	<key>GATrackerId</key>
+	<string>${GA_KEY}</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

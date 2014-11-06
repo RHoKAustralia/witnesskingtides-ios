@@ -10,7 +10,7 @@
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSDate *createdDate;
 @property (nonatomic, strong) NSString *photo;
-@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *uploadDescription;
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSString *fileId;

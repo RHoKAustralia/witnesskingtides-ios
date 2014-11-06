@@ -35,6 +35,7 @@
   if ([CLLocationManager locationServicesEnabled]) {
     self.successBlock = success;
     self.failureBlock = failure;
+    [self.locationManager requestWhenInUseAuthorization];
     if (useCachedValue) {
       [self requestLastLocationReceived];
     } else {
