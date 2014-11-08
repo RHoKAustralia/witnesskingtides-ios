@@ -1,11 +1,11 @@
 PODS:
   - AFNetworking (2.2.4):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
+    - AFNetworking/NSURLConnection (= 2.2.4)
+    - AFNetworking/NSURLSession (= 2.2.4)
+    - AFNetworking/Reachability (= 2.2.4)
+    - AFNetworking/Security (= 2.2.4)
+    - AFNetworking/Serialization (= 2.2.4)
+    - AFNetworking/UIKit (= 2.2.4)
   - AFNetworking/NSURLConnection (2.2.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -19,9 +19,10 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - GoogleAnalytics-iOS-SDK (3.0.7)
+  - JSONModel (1.0.1)
   - Kiwi (2.3.0)
   - Mantle (1.5):
-    - Mantle/extobjc
+    - Mantle/extobjc (= 1.5)
   - Mantle/extobjc (1.5)
   - MBProgressHUD (0.8)
   - NoticeView (3.0.7)
@@ -31,6 +32,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - GoogleAnalytics-iOS-SDK
+  - JSONModel
   - Kiwi
   - Mantle
   - MBProgressHUD (~> 0.8)
@@ -41,6 +43,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   GoogleAnalytics-iOS-SDK: bb285d8eef15a682f1b82971becd0d22edd0e53b
+  JSONModel: 634100aaacbd89811bc8a03da209356e5989c569
   Kiwi: 54bece5b35564d9b8e03c608d926f1a22fcfc589
   Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
@@ -48,3 +51,4 @@ SPEC CHECKSUMS:
   TestFlightSDK: 0c24c533748d0d84bfe7a3cb6036fa79124d84ee
   Tweaks: 05b197d4a1247288f576587546bc1932189d8c98
 
+COCOAPODS: 0.35.0.rc1
