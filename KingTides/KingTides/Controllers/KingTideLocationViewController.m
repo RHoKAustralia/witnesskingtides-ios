@@ -37,8 +37,4 @@
     self.screenName = [NSString stringWithFormat:@"KingTideLocation: %@", self.locationName];
 }
 
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-}
-
 @end

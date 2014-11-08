@@ -63,7 +63,7 @@
   [[KingTidesService sharedService] retrieveTideData:
                   ^(NSArray *list) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        self.tideInfoDivideByState = [TideInfo groupDataByState:[NSArray arrayWithArray:list]];
+                        self.tideInfoDivideByState = [TideInfoJM groupDataByState:[NSArray arrayWithArray:list]];
                         self.locations = self.tideInfoDivideByState[self.selectedState];
                         [[self tableView] reloadData];
                         [self.loading stopAnimating];
@@ -113,7 +113,7 @@
   cell.backgroundColor = [UIColor clearColor];
   cell.textLabel.textColor = [UIColor whiteColor];
   cell.textLabel.backgroundColor = [UIColor colorWithRed:(68.0f / 255.0f) green:(168.0f / 255.0f) blue:(218.0f / 255.0f) alpha:1];
-  TideInfo *info = self.locations[indexPath.row];
+  TideInfoJM *info = self.locations[indexPath.row];
   cell.textLabel.text = info.location;
   tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
   return cell;
@@ -123,12 +123,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   KingTideLocationViewController *detailViewController = [[KingTideLocationViewController alloc] init];
-  TideInfo *info = self.locations[indexPath.row];
+  TideInfoJM *info = self.locations[indexPath.row];
   detailViewController.locationName = info.location;
-  detailViewController.description = info.description;
-  detailViewController.tideOccurs = info.hightTideOccurs;
-  detailViewController.eventStarts = info.eventStarts;
-  detailViewController.eventEnds = info.eventEnds;
+  detailViewController.Description = info.Description;
+  detailViewController.tideOccurs = info.highTideOccurs;
+  detailViewController.eventStarts = info.eventStart;
+  detailViewController.eventEnds = info.eventEnd;
   [self.navigationController pushViewController:detailViewController animated:YES];
 }
 

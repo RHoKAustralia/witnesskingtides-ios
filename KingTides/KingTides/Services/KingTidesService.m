@@ -32,6 +32,8 @@
     [config setURLCache:cache];
     self.manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:self.endPoint] sessionConfiguration:config];
     self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+
+    [self.manager.requestSerializer setValue:[[NSBundle mainBundle] bundleIdentifier] forHTTPHeaderField:@"Origin"];
   }
   return self;
 }
@@ -51,7 +53,7 @@
              failure:(FailureBlock)failure
 {
   NSDictionary *JSONDictionary = [MTLJSONAdapter JSONDictionaryFromModel:upload];
-  [self.manager POST:@"upload" parameters:JSONDictionary
+  [self.manager POST:@"photos" parameters:JSONDictionary
              success:^(NSURLSessionDataTask *operation, id responseObject) {
                  NSLog(@"JSON: %@", responseObject);
 
@@ -66,19 +68,19 @@
 
 - (void)retrieveTideData:(void (^)(NSArray *list))success failure:(void (^)(NSError *error))failure {
 
-  [self.manager GET:@"tides" parameters:nil
+  [self.manager GET:@"tide_events" parameters:nil
             success:^(NSURLSessionDataTask *operation, id responseObject) {
+
+                
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) operation.response;
                 if (httpResponse.statusCode == statusCode_sucess) {
                   if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                       NSMutableArray *recordArray = [NSMutableArray array];
                       for (NSDictionary *dict in responseObject) {
-                        TideInfo *model = [MTLJSONAdapter modelOfClass:[TideInfo class]
-                                                    fromJSONDictionary:dict
-                                                                 error:nil];
+                          NSError *err = nil;
+                          TideInfoJM *model = [[TideInfoJM alloc] initWithDictionary:[dict objectForKey:@"event"] error:&err];
                         [recordArray addObject:model];
                       }
-
                     success(recordArray);
                   }
                 }

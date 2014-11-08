@@ -1,6 +1,6 @@
 
 #import <UIKit/UIKit.h>
-#import "TideInfo.h"
+#import "TideInfoJM.h"
 
 @interface KingTidesViewController : UITableViewController
 @end

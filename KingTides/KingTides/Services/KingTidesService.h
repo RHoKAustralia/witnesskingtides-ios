@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworkReachabilityManager.h"
+#import "TideInfoJM.h"
 
 @class CLLocation;
 @class Upload;
