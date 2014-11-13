@@ -112,7 +112,7 @@
   cell.textLabel.frame = frame;
   cell.backgroundColor = [UIColor clearColor];
   cell.textLabel.textColor = [UIColor whiteColor];
-  cell.textLabel.backgroundColor = [UIColor colorWithRed:(68.0f / 255.0f) green:(168.0f / 255.0f) blue:(218.0f / 255.0f) alpha:1];
+  cell.backgroundColor = [UIColor colorWithRed:(68.0f / 255.0f) green:(168.0f / 255.0f) blue:(218.0f / 255.0f) alpha:1];
   TideInfoJM *info = self.locations[indexPath.row];
   cell.textLabel.text = info.location;
   tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;

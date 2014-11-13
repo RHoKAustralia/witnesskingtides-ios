@@ -33,7 +33,7 @@
     NSString* eventStartsString=[self.dateFormatter stringFromDate:eventStats];
     NSString* eventEndsString=[self.dateFormatter stringFromDate:eventEnds];
     self.locationNameLabel.text = self.locationName;
-    self.tideDetailsTextView.text=[NSString stringWithFormat:@"The King Tide will occur on %@.\n You can witness the effect of the King Tide between %@ and %@.",tideOccurDateString,eventStartsString,eventEndsString];
+    self.tideDetailsTextView.text=[NSString stringWithFormat:@"The King Tide will occur on %@.\n\nYou can witness the effect of the King Tide between %@ and %@.",tideOccurDateString,eventStartsString,eventEndsString];
     self.screenName = [NSString stringWithFormat:@"KingTideLocation: %@", self.locationName];
 }
 
